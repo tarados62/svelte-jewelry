@@ -1,8 +1,13 @@
 <script>
-	import { page } from '$app/stores';
 	import { fly, scale } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
+	/**
+	 * @type {any}
+	 */
 	export let links;
+	/**
+	 * @type {any}
+	 */
 	export let open;
 </script>
 
@@ -25,11 +30,13 @@
 		background: #1d1d2f;
 	}
 	.menu {
+		width: 100vw;
 		text-align: center;
 		font-size: 1.5em;
 		letter-spacing: 0.15em;
 		padding: 1em;
 		padding-top: 0;
+		background-color: yellow;
 		color: rgb(0, 0, 25);
 	}
 	p {
@@ -45,5 +52,6 @@
 		border-color: rgb(9, 3, 3);
 		border-width: 1px;
 		height: 0;
+		width: 100vw;
 	}
 </style>

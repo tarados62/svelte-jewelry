@@ -5,6 +5,9 @@
 	import { Hamburger } from 'svelte-hamburgers';
 	import Menu from '$lib/Menu.svelte';
 	import Dropdown from '$lib/Dropdown.svelte';
+	/**
+	 * @type {any}
+	 */
 	let open;
 	const linkList = $page.data.links;
 </script>
