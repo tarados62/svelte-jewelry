@@ -1243,6 +1243,11 @@ svelte-check@^2.7.1:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
+svelte-hamburgers@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/svelte-hamburgers/-/svelte-hamburgers-4.1.1.tgz"
+  integrity sha512-tHgP17HP1xd+0IKA/rSrnEOiyvbsL74SK1LOwjoi8dTwa41usAeQuWaS90sC2VOw87tnHcafV3G+fh1gubiOdA==
+
 svelte-hmr@^0.15.2:
   version "0.15.2"
   resolved "https://registry.npmjs.org/svelte-hmr/-/svelte-hmr-0.15.2.tgz"
@@ -1260,7 +1265,7 @@ svelte-preprocess@^4.0.0, svelte-preprocess@^4.10.6:
     sorcery "^0.10.0"
     strip-indent "^3.0.0"
 
-"svelte@^3.19.0 || ^4.0.0-next.0", svelte@^3.2.0, svelte@^3.23.0, svelte@^3.24.0, svelte@^3.46.0, "svelte@^3.54.0 || ^4.0.0", "svelte@^3.54.0 || ^4.0.0-next.0":
+"svelte@^3.19.0 || ^4.0.0-next.0", svelte@^3.2.0, svelte@^3.23.0, svelte@^3.24.0, svelte@^3.46.0, "svelte@^3.46.4 || ^4.0.0", "svelte@^3.54.0 || ^4.0.0", "svelte@^3.54.0 || ^4.0.0-next.0":
   version "3.59.2"
   resolved "https://registry.npmjs.org/svelte/-/svelte-3.59.2.tgz"
   integrity sha512-vzSyuGr3eEoAtT/A6bmajosJZIUWySzY2CzB3w2pgPvnkUjGqlDnsNnA0PMO+mMAhuyMul6C2uuZzY6ELSkzyA==
