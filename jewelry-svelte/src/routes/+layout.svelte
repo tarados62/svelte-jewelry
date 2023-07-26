@@ -10,9 +10,7 @@
 		<slot />
 	</main>
 
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
+	<footer />
 </div>
 
 <style>
@@ -41,7 +39,7 @@
 		padding: 12px;
 	}
 
-	footer a {
+	/* footer a {
 		font-weight: bold;
 	}
 
@@ -49,5 +47,5 @@
 		footer {
 			padding: 12px 0;
 		}
-	}
+	} */
 </style>
