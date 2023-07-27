@@ -6,14 +6,20 @@
 	 * @type {any}
 	 */
      export let open;
+     let click = () => {
+        open = !open;
+     };
 </script>
 
 {#if open}
     <div class="menu">
         {#each ['Home', 'Example', 'About', 'Contact'] as link, i}
-            <p transition:fly={{ y: -15, delay: 50 * i }}>
-                {link}
-            </p>
+            <a href="/" on:click={click}>
+                <p transition:fly={{ y: -15, delay: 50 * i }}>
+                    {link}
+                </p>
+            </a>
+            
         {/each}
     </div>
 
@@ -32,12 +38,13 @@
         padding-top: 0;
         color: rgb(12, 12, 102);
     }
-    p {
+    a p {
         cursor: pointer;
         width: max-content;
         margin: 1rem auto;
+        color: black;
     }
-    p:hover {
+    a p:hover {
         text-decoration: underline;
     }
     .bar {
