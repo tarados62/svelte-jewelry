@@ -1,14 +1,93 @@
 <script>
-	import { page } from '$app/stores';
+	import { Hamburger } from 'svelte-hamburgers';
+	import Menu from './Menu.svelte';
 	import phone from '$lib/images/phone-receiver.svg';
-	import cart from '$lib/images/basket.png';
+	import cart from '$lib/images/cart.svg';
+
+	/**
+	 * @type {any}
+	 */
+	let open;
 </script>
 
-<header />
+<svelte:head>
+	<title>Home</title>
+	<meta name="description" content="Svelte demo app" />
+</svelte:head>
+<section>
+	<div class="my_hamb">
+		<Hamburger bind:open --color="black" />
+		<Menu bind:open />
+	</div>
+
+	<div class="phone">
+		<img src={phone} alt="" />
+		<a href="/" class="phone">
+			<span>+380507204066</span>
+		</a>
+	</div>
+	<div class="basket">
+		<a href="/">
+			<img src={cart} alt="" />
+			<span>0</span>
+		</a>
+	</div>
+</section>
 
 <style>
-	header {
+	section {
+		z-index: 1;
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
+		background-color: #f5f5f5;
+		font-size: calc(14px + 2 * ((100vw - 320px) / 1518));
+	}
+
+	.my_hamb {
+		z-index: 1;
+		display: none;
+	}
+
+	.phone {
+		display: flex;
+		align-items: center;
+		padding-left: calc(60 * ((100vw - 500px) / 1837));
+	}
+	.phone img {
+		height: 1rem;
+	}
+
+	.phone a {
+		margin-left: 5px;
+		text-decoration: none;
+		color: #000000;
+	}
+
+	.basket a {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10%;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	/* .basket a {
+		display: flex;
+		align-items: center;
+	} */
+	.basket a img {
+		height: 1.4rem;
+	}
+
+	.basket a span {
+		padding-left: 1%;
+		font-size: calc(18px + 2 * ((100vw - 320px) / 1848));
+	}
+
+	@media screen and (max-width: 750px) {
+		.my_hamb {
+			display: block;
+		}
 	}
 </style>
