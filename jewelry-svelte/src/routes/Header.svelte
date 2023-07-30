@@ -1,4 +1,6 @@
 <script>
+	import { page } from '$app/stores';
+	const links = $page.data.links;
 	import { Hamburger } from 'svelte-hamburgers';
 	import Menu from './Menu.svelte';
 	import phone from '$lib/images/phone-receiver.svg';
@@ -33,6 +35,18 @@
 		</a>
 	</div>
 </section>
+<div class="logo">
+	<span>JEWELRY</span>
+</div>
+<nav>
+	<div class="links">
+		{#each links as link}
+			<a href="/">
+				{link.title}
+			</a>
+		{/each}
+	</div>
+</nav>
 
 <style>
 	section {
@@ -40,6 +54,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		height: calc(60px + 2 * ((100vw - 320px) / 1518));
 		background-color: #f5f5f5;
 		font-size: calc(14px + 2 * ((100vw - 320px) / 1518));
 	}
@@ -71,18 +86,43 @@
 		text-decoration: none;
 		cursor: pointer;
 	}
-
-	/* .basket a {
-		display: flex;
-		align-items: center;
-	} */
-	.basket a img {
+	img {
 		height: 1.4rem;
 	}
 
 	.basket a span {
 		padding-left: 1%;
 		font-size: calc(18px + 2 * ((100vw - 320px) / 1848));
+	}
+
+	.logo {
+		height: 4rem;
+		width: 100%;
+		margin: 2%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: calc(3rem + 5 * (100vw / 1838));
+	}
+	nav {
+		width: 100vw;
+		display: flex;
+		align-items: center;
+		margin-top: 7vmin;
+	}
+
+	nav .links {
+		width: 100vw;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		padding: 0 calc(3vw + 12 * (100vw / 1838));
+	}
+
+	nav .links a {
+		cursor: pointer;
+		text-decoration: none;
+		text-transform: uppercase;
 	}
 
 	@media screen and (max-width: 750px) {
