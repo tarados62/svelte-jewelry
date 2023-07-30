@@ -12,17 +12,14 @@
 </script>
 
 {#if open}
-	<div class="menu">
+	<div class="menu" transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }}>
 		{#each ['Home', 'Example', 'About', 'Contact'] as link, i}
-			<a href="/" on:click={click}>
-				<p transition:fly={{ y: -15, delay: 50 * i }}>
-					{link}
-				</p>
+			<a href="/" on:click={click} transition:fly={{ y: -15, delay: 50 * i }}>
+				{link}
 			</a>
 		{/each}
+		<div class="bar" transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }} />
 	</div>
-
-	<div class="bar" transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }} />
 {/if}
 
 <style>
@@ -35,6 +32,8 @@
 		top: 1.4%;
 		left: 0;
 		width: 100%;
+		display: flex;
+		flex-direction: column;
 		background-color: #f5f5f5;
 		text-align: center;
 		font-size: 1.5em;
@@ -46,19 +45,17 @@
 		text-decoration: none;
 		text-transform: uppercase;
 		cursor: pointer;
-	}
-
-	a p {
 		width: max-content;
 		margin: 1rem auto;
 		color: black;
+		border-bottom: black;
 	}
-	a p:hover {
+	a:hover {
 		text-decoration: underline;
 	}
 	.bar {
 		border-style: solid;
-		border-color: white;
+		border-color: rgb(19, 4, 4);
 		border-width: 1px;
 		height: 0;
 	}
