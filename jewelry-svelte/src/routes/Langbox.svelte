@@ -1,11 +1,18 @@
 <script>
 	import foto from '$lib/images/en.svg';
+	/**
+	 * @type {boolean}
+	 */
+	let isVisible;
+	let click = () => {
+		isVisible = !isVisible;
+	};
 </script>
 
 <div class="langSelector">
 	<img alt="" src={foto} />
 	<span>ppp</span>
-	<div class="langSelector_item">
+	<a href="/" class="langSelector_item" on:click={click}>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 24 24"
@@ -18,13 +25,15 @@
 			<path stroke="none" d="M0 0h24v24H0z" />
 			<path d="M9 14l3 3l3 -3" />
 		</svg>
-	</div>
-	<div class="sub-menu">
-		<div class="menu-item lang">
-			<img alt="" src={foto} />
-			<span>mm</span>
+	</a>
+	{#if isVisible}
+		<div class="sub-menu">
+			<a href="/" class="menu-item lang" on:click={click}>
+				<img alt="" src={foto} />
+				<span>mm</span>
+			</a>
 		</div>
-	</div>
+	{/if}
 </div>
 
 <style scoped>
