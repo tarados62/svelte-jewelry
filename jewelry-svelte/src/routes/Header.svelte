@@ -5,6 +5,7 @@
 	import Menu from './Menu.svelte';
 	import phone from '$lib/images/phone-receiver.svg';
 	import cart from '$lib/images/cart.svg';
+	import Langbox from './Langbox.svelte';
 
 	/**
 	 * @type {any}
@@ -21,12 +22,14 @@
 		<Hamburger bind:open --color="black" />
 		<Menu bind:open />
 	</div>
-
 	<div class="phone">
 		<img src={phone} alt="" />
 		<a href="/" class="phone">
 			<span>+380507204066</span>
 		</a>
+	</div>
+	<div class="langbox">
+		<Langbox />
 	</div>
 	<div class="basket">
 		<a href="/">
@@ -77,6 +80,14 @@
 		margin-left: 5px;
 		text-decoration: none;
 		color: #000000;
+	}
+
+	.langbox {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10%;
+		text-decoration: none;
+		cursor: pointer;
 	}
 
 	.basket a {
