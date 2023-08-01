@@ -2,7 +2,13 @@
 // it so that it gets served as a static asset in production
 export const prerender = true;
 /** @type {import('./$types').PageLoad} */
-export function load() {
+export async function load({ fetch, params }) {
+	const res = await fetch('https://alloe-vega-app.party.space/app/locales');
+	const item = await res.json();
+	const en = item['en-EN'];
+	const es = item['es-ES'];
+	const ua = item['uk-UA'];
+
 	const linkList = [
 		{ route: '/', title: 'MenuHome' },
 		{ route: '/about', title: 'MenuAboutUs' },
@@ -27,6 +33,9 @@ export function load() {
 	];
 	return {
 		links: linkList,
-		countries: countryList
+		countries: countryList,
+		en: en,
+		es: es,
+		ua: ua
 	};
 }
