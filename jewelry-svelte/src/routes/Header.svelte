@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	const links = $page.data.links;
+
 	import { Hamburger } from 'svelte-hamburgers';
 	import Menu from './Menu.svelte';
 	import phone from '$lib/images/phone-receiver.svg';
