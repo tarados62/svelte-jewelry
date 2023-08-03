@@ -1,12 +1,6 @@
 <script>
 	import { page } from '$app/stores';
 	const links = $page.data.links;
-	const en = $page.data.en;
-	const es = $page.data.es;
-	const ua = $page.data.ua;
-	console.log(en);
-	import { _ } from 'svelte-i18n';
-	console.log(_);
 	import { Hamburger } from 'svelte-hamburgers';
 	import Menu from './Menu.svelte';
 	import phone from '$lib/images/phone-receiver.svg';
