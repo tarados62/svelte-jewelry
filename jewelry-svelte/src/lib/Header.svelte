@@ -2,10 +2,10 @@
 	import { page } from '$app/stores';
 	const links = $page.data.links;
 	import { Hamburger } from 'svelte-hamburgers';
-	import Menu from './Menu.svelte';
+	import Menu from '$lib/Menu.svelte';
 	import phone from '$lib/images/phone-receiver.svg';
 	import cart from '$lib/images/cart.svg';
-	import Langbox from './Langbox.svelte';
+	import Langbox from '$lib/Langbox.svelte';
 
 	/**
 	 * @type {any}
