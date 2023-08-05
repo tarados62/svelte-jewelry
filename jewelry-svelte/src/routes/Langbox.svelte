@@ -1,5 +1,11 @@
 <script>
-	import foto from '$lib/images/en.svg';
+	import img_en from '$lib/images/en.svg';
+	import img_es from '$lib/images/es.svg';
+	import img_ua from '$lib/images/uk.svg';
+	import { page } from '$app/stores';
+	const locales = $page.data.locales;
+	const countries = ['en', 'es', 'ua'];
+	$: foto = img_en;
 	/**
 	 * @type {boolean}
 	 */
