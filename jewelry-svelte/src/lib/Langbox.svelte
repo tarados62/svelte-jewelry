@@ -5,8 +5,8 @@
 	import { localeSet } from '../stores';
 	import { page } from '$app/stores';
 	const locales = $page.data.locales;
-	console.log($localeSet);
-	const countries = ['en', 'es', 'ua'];
+	// console.log($localeSet);
+	const countries = ['EN', 'ES', 'UA'];
 	$: foto = img_en;
 	$: setLocale = 'en-EN';
 	/**
@@ -15,6 +15,9 @@
 	let isVisible = false;
 	let click = () => {
 		isVisible = !isVisible;
+	};
+	let choiceLocale = (/** @type {any} */ index) => {
+		console.log(index);
 	};
 </script>
 
@@ -38,8 +41,15 @@
 </div>
 {#if isVisible}
 	<div class="sub-menu">
-		{#each countries as country}
-			<a href="/" class="menu-item lang" on:click={click}>
+		{#each countries as country, index}
+			<a
+				href="/"
+				class="menu-item lang"
+				on:click={() => {
+					$localeSet = countries[index];
+				}}
+				on:click={click}
+			>
 				<img alt="" src={foto} />
 				<span> {country}</span>
 			</a>
