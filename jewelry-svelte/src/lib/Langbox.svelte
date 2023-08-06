@@ -5,6 +5,7 @@
 	import { localeSet } from '../stores';
 	import { page } from '$app/stores';
 	const locales = $page.data.locales;
+	console.log(locales);
 	const countries = ['EN', 'ES', 'UA'];
 	const fotos = [en, es, ua];
 	$: foto = en;
