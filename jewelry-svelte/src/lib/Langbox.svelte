@@ -1,14 +1,20 @@
 <script>
-	import img_en from '$lib/images/en.svg';
-	import img_es from '$lib/images/es.svg';
-	import img_ua from '$lib/images/uk.svg';
+	import en from '$lib/images/en.svg';
+	import es from '$lib/images/es.svg';
+	import ua from '$lib/images/uk.svg';
 	import { localeSet } from '../stores';
 	import { page } from '$app/stores';
 	const locales = $page.data.locales;
-	// console.log($localeSet);
 	const countries = ['EN', 'ES', 'UA'];
-	$: foto = img_en;
-	$: setLocale = 'en-EN';
+	const fotos = [en, es, ua];
+	$: foto = en;
+	$: if ($localeSet.country == 'EN') {
+		foto = en;
+	} else if ($localeSet.country == 'ES') {
+		foto = es;
+	} else if ($localeSet.country == 'UA') {
+		foto = ua;
+	}
 	/**
 	 * @type {boolean}
 	 */
@@ -23,7 +29,7 @@
 
 <div class="langSelector">
 	<img alt="" src={foto} />
-	<span>{$localeSet}</span>
+	<span>{$localeSet.country}</span>
 	<a href="/" class="langSelector_item" on:click={click}>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -41,17 +47,17 @@
 </div>
 {#if isVisible}
 	<div class="sub-menu">
-		{#each countries as country, index}
+		{#each countries as item, index}
 			<a
 				href="/"
 				class="menu-item lang"
 				on:click={() => {
-					$localeSet = countries[index];
+					$localeSet.country = countries[index];
 				}}
 				on:click={click}
 			>
-				<img alt="" src={foto} />
-				<span> {country}</span>
+				<img alt="" src={fotos[index]} />
+				<span> {item}</span>
 			</a>
 		{/each}
 	</div>
