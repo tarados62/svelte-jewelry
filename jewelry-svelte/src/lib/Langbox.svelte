@@ -2,14 +2,17 @@
 	import img_en from '$lib/images/en.svg';
 	import img_es from '$lib/images/es.svg';
 	import img_ua from '$lib/images/uk.svg';
+	import { localeSet } from '../stores';
 	import { page } from '$app/stores';
 	const locales = $page.data.locales;
+	console.log($localeSet);
 	const countries = ['en', 'es', 'ua'];
 	$: foto = img_en;
+	$: setLocale = 'en-EN';
 	/**
 	 * @type {boolean}
 	 */
-	let isVisible;
+	let isVisible = false;
 	let click = () => {
 		isVisible = !isVisible;
 	};
@@ -17,7 +20,7 @@
 
 <div class="langSelector">
 	<img alt="" src={foto} />
-	<span>ppp</span>
+	<span>{$localeSet}</span>
 	<a href="/" class="langSelector_item" on:click={click}>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -32,15 +35,17 @@
 			<path d="M9 14l3 3l3 -3" />
 		</svg>
 	</a>
-	{#if isVisible}
-		<div class="sub-menu">
+</div>
+{#if isVisible}
+	<div class="sub-menu">
+		{#each countries as country}
 			<a href="/" class="menu-item lang" on:click={click}>
 				<img alt="" src={foto} />
-				<span>mm</span>
+				<span> {country}</span>
 			</a>
-		</div>
-	{/if}
-</div>
+		{/each}
+	</div>
+{/if}
 
 <style scoped>
 	.langSelector {
@@ -69,35 +74,36 @@
 		margin: auto;
 	}
 
-	.langSelector .sub-menu {
+	.sub-menu {
+		width: fit-content;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		background-color: #f5f5f5;
 		position: absolute;
-		width: 100%;
-		top: calc(60% + 18px);
-		right: 10px;
+		top: calc(15%);
 	}
 
-	.langSelector .sub-menu .lang {
+	.sub-menu .lang {
 		display: grid;
 		grid-template-columns: 1rem 2rem;
 		grid-template-rows: 2rem;
 		align-items: baseline;
 		justify-items: center;
 		cursor: pointer;
+		text-decoration: none;
+		text-transform: uppercase;
 	}
 
-	.langSelector .sub-menu .lang:hover {
+	.sub-menu .lang:hover {
 		font-weight: bold;
 	}
 
-	.langSelector .sub-menu .lang img {
+	.sub-menu .lang img {
 		width: 100%;
 	}
 
-	.langSelector .sub-menu .lang img:hover {
+	.sub-menu .lang img:hover {
 		width: 105%;
 	}
 
