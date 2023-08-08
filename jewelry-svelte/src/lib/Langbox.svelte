@@ -63,6 +63,8 @@
 
 <style scoped>
 	.langSelector {
+		width: calc(60px + 2 * ((100vw - 320px) / 1518));
+		padding-left: 12%;
 		position: relative;
 		display: grid;
 		grid-template-columns: 1rem 2rem auto;
@@ -89,13 +91,13 @@
 	}
 
 	.sub-menu {
-		width: fit-content;
+		width: calc(60px + 2 * ((100vw - 320px) / 1518));
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		background-color: #f5f5f5;
 		position: absolute;
-		top: calc(15%);
+		top: calc(60px + 2 * ((100vw - 320px) / 1518));
 	}
 
 	.sub-menu .lang {
