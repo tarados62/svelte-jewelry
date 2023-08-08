@@ -3,8 +3,6 @@
 	import es from '$lib/images/es.svg';
 	import ua from '$lib/images/uk.svg';
 	import { localeSet } from '../stores';
-	import { page } from '$app/stores';
-	const locales = $page.data.locales;
 	const countries = ['EN', 'ES', 'UA'];
 	const fotos = [en, es, ua];
 	$: foto = en;

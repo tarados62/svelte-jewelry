@@ -1,11 +1,23 @@
 <script>
 	import { page } from '$app/stores';
-	const links = $page.data.links;
 	import { Hamburger } from 'svelte-hamburgers';
 	import Menu from '$lib/Menu.svelte';
 	import phone from '$lib/images/phone-receiver.svg';
 	import cart from '$lib/images/cart.svg';
 	import Langbox from '$lib/Langbox.svelte';
+	import { localeSet } from '../stores';
+	const links = $page.data.links;
+	const _en = $page.data.locale_en;
+	const _es = $page.data.locale_es;
+	const _ua = $page.data.locale_ua;
+	$: l = _en;
+	$: if ($localeSet.country == 'EN') {
+		l = _en;
+	} else if ($localeSet.country == 'ES') {
+		l = _es;
+	} else if ($localeSet.country == 'UA') {
+		l = _ua;
+	}
 
 	/**
 	 * @type {any}
@@ -45,7 +57,7 @@
 	<div class="links">
 		{#each links as link}
 			<a href="/">
-				{link.title}
+				{l[link.title]}
 			</a>
 		{/each}
 	</div>

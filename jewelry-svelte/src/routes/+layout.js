@@ -10,12 +10,20 @@ export async function load() {
 		locale[keyLocales[i].slice(3)] = data[keyLocales[i]];
 		locales.push(locale);
 	}
+	let locale_ru = locales[0]['RU'];
+	let locale_ua = locales[1]['UA'];
+	let locale_en = locales[2]['EN'];
+	let locale_es = locales[3]['ES'];
 	return {
 		links: [
 			{ route: '/', title: 'MenuHome' },
 			{ route: '/about', title: 'MenuAboutUs' },
 			{ route: '/contacts', title: 'MenuContacts' }
 		],
-		locales
+		locales,
+		locale_en,
+		locale_es,
+		locale_ua,
+		locale_ru
 	};
 }
