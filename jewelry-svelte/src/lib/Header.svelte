@@ -5,18 +5,14 @@
 	import phone from '$lib/images/phone-receiver.svg';
 	import cart from '$lib/images/cart.svg';
 	import Langbox from '$lib/Langbox.svelte';
-	import { localeSet } from '../stores';
-	const links = $page.data.links;
-	const _en = $page.data.locale_en;
-	const _es = $page.data.locale_es;
-	const _ua = $page.data.locale_ua;
-	$: l = _en;
-	$: if ($localeSet.country == 'EN') {
-		l = _en;
-	} else if ($localeSet.country == 'ES') {
-		l = _es;
-	} else if ($localeSet.country == 'UA') {
-		l = _ua;
+	import { locale } from '../stores';
+	$: l = $page.data.locale_en;
+	$: if ($locale == 'EN') {
+		l = $page.data.locale_en;
+	} else if ($locale == 'ES') {
+		l = $page.data.locale_es;
+	} else if ($locale == 'UA') {
+		l = $page.data.locale_ua;
 	}
 
 	/**
@@ -55,7 +51,7 @@
 </div>
 <nav>
 	<div class="links">
-		{#each links as link}
+		{#each $page.data.links as link}
 			<a href="/">
 				{l[link.title]}
 			</a>

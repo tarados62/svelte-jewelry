@@ -2,15 +2,15 @@
 	import en from '$lib/images/en.svg';
 	import es from '$lib/images/es.svg';
 	import ua from '$lib/images/uk.svg';
-	import { localeSet } from '../stores';
+	import { locale } from '../stores';
 	const countries = ['EN', 'ES', 'UA'];
 	const fotos = [en, es, ua];
 	$: foto = en;
-	$: if ($localeSet.country == 'EN') {
+	$: if ($locale == 'EN') {
 		foto = en;
-	} else if ($localeSet.country == 'ES') {
+	} else if ($locale == 'ES') {
 		foto = es;
-	} else if ($localeSet.country == 'UA') {
+	} else if ($locale == 'UA') {
 		foto = ua;
 	}
 	/**
@@ -20,14 +20,11 @@
 	let click = () => {
 		isVisible = !isVisible;
 	};
-	let choiceLocale = (/** @type {any} */ index) => {
-		console.log(index);
-	};
 </script>
 
 <div class="langSelector">
 	<img alt="" src={foto} />
-	<span>{$localeSet.country}</span>
+	<span>{$locale}</span>
 	<a href="/" class="langSelector_item" on:click={click}>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +47,7 @@
 				href="/"
 				class="menu-item lang"
 				on:click={() => {
-					$localeSet.country = countries[index];
+					$locale = countries[index];
 				}}
 				on:click={click}
 			>

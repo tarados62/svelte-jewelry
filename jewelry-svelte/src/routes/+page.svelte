@@ -1,7 +1,7 @@
 <script>
 	import { page } from '$app/stores';
-	import { localeSet } from '../stores';
+	import { locale } from '../stores';
 	// const locales = $page.data.locales;
 </script>
 
-<h1>{$localeSet.country}</h1>
+<h1>{$locale}</h1>
