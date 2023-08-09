@@ -13,8 +13,9 @@
 		l = $page.data.locale_es;
 	} else if ($locale == 'UA') {
 		l = $page.data.locale_ua;
+	} else if ($locale == 'RU') {
+		l = $page.data.locale_ru;
 	}
-
 	/**
 	 * @type {any}
 	 */

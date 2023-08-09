@@ -2,9 +2,10 @@
 	import en from '$lib/images/en.svg';
 	import es from '$lib/images/es.svg';
 	import ua from '$lib/images/uk.svg';
+	import ru from '$lib/images/ru.svg';
 	import { locale } from '../stores';
-	const countries = ['EN', 'ES', 'UA'];
-	const fotos = [en, es, ua];
+	import { page } from '$app/stores';
+	const fotos = [ru, ua, en, es];
 	$: foto = en;
 	$: if ($locale == 'EN') {
 		foto = en;
@@ -12,6 +13,8 @@
 		foto = es;
 	} else if ($locale == 'UA') {
 		foto = ua;
+	} else if ($locale == 'RU') {
+		foto = ru;
 	}
 	/**
 	 * @type {boolean}
@@ -42,12 +45,12 @@
 </div>
 {#if isVisible}
 	<div class="sub-menu">
-		{#each countries as item, index}
+		{#each $page.data.countries as item, index}
 			<a
 				href="/"
 				class="menu-item lang"
 				on:click={() => {
-					$locale = countries[index];
+					$locale = $page.data.countries[index];
 				}}
 				on:click={click}
 			>
