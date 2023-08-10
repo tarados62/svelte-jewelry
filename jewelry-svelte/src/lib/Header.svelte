@@ -37,14 +37,16 @@
 			<span>+380507204066</span>
 		</a>
 	</div>
-	<div class="langbox">
-		<Langbox />
-	</div>
-	<div class="basket">
-		<a href="/">
-			<img src={cart} alt="" />
-			<span>0</span>
-		</a>
+	<div class="langbox-basket">
+		<div class="langbox">
+			<Langbox />
+		</div>
+		<div class="basket">
+			<a href="/">
+				<img src={cart} alt="" />
+				<span>0</span>
+			</a>
+		</div>
 	</div>
 </section>
 <div class="logo">
@@ -91,9 +93,17 @@
 		color: #000000;
 	}
 
+	.langbox-basket {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+
 	.langbox {
+		margin-right: 1.3rem;
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr;
 		gap: 10%;
 		text-decoration: none;
 		cursor: pointer;
