@@ -27,15 +27,17 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 <section>
-	<div class="my_hamb">
-		<Hamburger bind:open --color="black" />
-		<Menu bind:open />
-	</div>
-	<div class="phone">
-		<img src={phone} alt="" />
-		<a href="/" class="phone">
-			<span>+380507204066</span>
-		</a>
+	<div class="hamburger-phone">
+		<div class="my_hamb">
+			<Hamburger bind:open --color="black" />
+			<Menu bind:open />
+		</div>
+		<div class="phone">
+			<img src={phone} alt="" />
+			<a href="/" class="phone">
+				<span>+380507204066</span>
+			</a>
+		</div>
 	</div>
 	<div class="langbox-basket">
 		<div class="langbox">
@@ -71,6 +73,13 @@
 		height: calc(60px + 2 * ((100vw - 320px) / 1518));
 		background-color: #f5f5f5;
 		font-size: calc(14px + 2 * ((100vw - 320px) / 1518));
+	}
+
+	.hamburger-phone {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: space-between;
 	}
 
 	.my_hamb {
