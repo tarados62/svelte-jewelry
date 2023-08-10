@@ -6,15 +6,15 @@
 	import cart from '$lib/images/cart.svg';
 	import Langbox from '$lib/Langbox.svelte';
 	import { locale } from '../stores';
-	$: l = $page.data.locale_en;
+	$: l = $page.data.locale['EN'];
 	$: if ($locale == 'EN') {
-		l = $page.data.locale_en;
+		l = $page.data.locale['EN'];
 	} else if ($locale == 'ES') {
-		l = $page.data.locale_es;
+		l = $page.data.locale['ES'];
 	} else if ($locale == 'UA') {
-		l = $page.data.locale_ua;
+		l = $page.data.locale['UA'];
 	} else if ($locale == 'RU') {
-		l = $page.data.locale_ru;
+		l = $page.data.locale['RU'];
 	}
 	/**
 	 * @type {any}
