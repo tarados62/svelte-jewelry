@@ -5,15 +5,15 @@
 	import phone from '$lib/images/phone-receiver.svg';
 	import cart from '$lib/images/cart.svg';
 	import Langbox from '$lib/Langbox.svelte';
-	import { locale } from '../stores';
+	import { localeName } from '../stores';
 	$: l = $page.data.locale['EN'];
-	$: if ($locale == 'EN') {
+	$: if ($localeName == 'EN') {
 		l = $page.data.locale['EN'];
-	} else if ($locale == 'ES') {
+	} else if ($localeName == 'ES') {
 		l = $page.data.locale['ES'];
-	} else if ($locale == 'UA') {
+	} else if ($localeName == 'UA') {
 		l = $page.data.locale['UA'];
-	} else if ($locale == 'RU') {
+	} else if ($localeName == 'RU') {
 		l = $page.data.locale['RU'];
 	}
 	/**

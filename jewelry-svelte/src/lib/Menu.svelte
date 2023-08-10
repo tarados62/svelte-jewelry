@@ -3,15 +3,15 @@
 	const links = $page.data.links;
 	import { fly, scale } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
-	import { locale } from '../stores';
+	import { localeName } from '../stores';
 	$: l = $page.data.locale['EN'];
-	$: if ($locale == 'EN') {
+	$: if ($localeName == 'EN') {
 		l = $page.data.locale['EN'];
-	} else if ($locale == 'ES') {
+	} else if ($localeName == 'ES') {
 		l = $page.data.locale['ES'];
-	} else if ($locale == 'UA') {
+	} else if ($localeName == 'UA') {
 		l = $page.data.locale['UA'];
-	} else if ($locale == 'RU') {
+	} else if ($localeName == 'RU') {
 		l = $page.data.locale['RU'];
 	}
 

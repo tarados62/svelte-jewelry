@@ -3,17 +3,17 @@
 	import es from '$lib/images/es.svg';
 	import ua from '$lib/images/uk.svg';
 	import ru from '$lib/images/ru.svg';
-	import { locale } from '../stores';
+	import { localeName } from '../stores';
 	import { page } from '$app/stores';
 	const fotos = [ru, ua, en, es];
 	$: foto = en;
-	$: if ($locale == 'EN') {
+	$: if ($localeName == 'EN') {
 		foto = en;
-	} else if ($locale == 'ES') {
+	} else if ($localeName == 'ES') {
 		foto = es;
-	} else if ($locale == 'UA') {
+	} else if ($localeName == 'UA') {
 		foto = ua;
-	} else if ($locale == 'RU') {
+	} else if ($localeName == 'RU') {
 		foto = ru;
 	}
 	/**
@@ -27,7 +27,7 @@
 
 <div class="langSelector">
 	<img alt="" src={foto} />
-	<span>{$locale}</span>
+	<span>{$localeName}</span>
 	<a href="/" class="langSelector_item" on:click={click}>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@
 				href="/"
 				class="menu-item lang"
 				on:click={() => {
-					$locale = $page.data.countries[index];
+					$localeName = $page.data.countries[index];
 				}}
 				on:click={click}
 			>
