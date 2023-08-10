@@ -3,6 +3,17 @@
 	const links = $page.data.links;
 	import { fly, scale } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
+	import { locale } from '../stores';
+	$: l = $page.data.locale_en;
+	$: if ($locale == 'EN') {
+		l = $page.data.locale_en;
+	} else if ($locale == 'ES') {
+		l = $page.data.locale_es;
+	} else if ($locale == 'UA') {
+		l = $page.data.locale_ua;
+	} else if ($locale == 'RU') {
+		l = $page.data.locale_ru;
+	}
 
 	/**
 	 * @type {any}
@@ -17,7 +28,7 @@
 	<div class="menu" transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }}>
 		{#each links as link, i}
 			<a href="/" on:click={click} transition:fly={{ y: -15, delay: 50 * i }}>
-				{link.title}
+				{l[link.title]}
 			</a>
 		{/each}
 		<div class="bar" transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }} />
