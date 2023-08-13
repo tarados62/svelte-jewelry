@@ -141,7 +141,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: calc(3rem + 5 * (100vw / 1838));
+		font-size: calc(30px + 25 * (100vw / 1280));
 	}
 	nav {
 		width: 100vw;
