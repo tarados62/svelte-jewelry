@@ -1,6 +1,5 @@
 <script>
 	import { page } from '$app/stores';
-	const links = $page.data.links;
 	import { fly, scale } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 	import { localeName } from '../stores';
@@ -26,11 +25,15 @@
 
 {#if open}
 	<div class="menu" transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }}>
-		{#each links as link, i}
-			<a href="/" on:click={click} transition:fly={{ y: -15, delay: 50 * i }}>
-				{l[link.title]}
-			</a>
-		{/each}
+		<a href="/" on:click={click} transition:fly={{ y: -15, delay: 50 * 0 }}>
+			{l['MenuHome']}
+		</a>
+		<a href="/about" on:click={click} transition:fly={{ y: -15, delay: 50 * 1 }}>
+			{l['MenuAboutUs']}
+		</a>
+		<a href="/contacts" on:click={click} transition:fly={{ y: -15, delay: 50 * 2 }}>
+			{l['MenuContacts']}
+		</a>
 		<div class="bar" transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }} />
 	</div>
 {/if}

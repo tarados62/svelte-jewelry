@@ -14,11 +14,6 @@ export async function load() {
 	}
 	let countries = Object.keys(locale);
 	return {
-		links: [
-			{ route: '/', title: 'MenuHome' },
-			{ route: '/about', title: 'MenuAboutUs' },
-			{ route: '/contacts', title: 'MenuContacts' }
-		],
 		locale,
 		countries,
 		products

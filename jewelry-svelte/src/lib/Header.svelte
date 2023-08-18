@@ -56,11 +56,15 @@
 </div>
 <nav>
 	<div class="links">
-		{#each $page.data.links as link}
-			<a href="/">
-				{l[link.title]}
-			</a>
-		{/each}
+		<a href="/">
+			{l['MenuHome']}
+		</a>
+		<a href="/about">
+			{l['MenuAboutUs']}
+		</a>
+		<a href="/contacts">
+			{l['MenuContacts']}
+		</a>
 	</div>
 </nav>
 
