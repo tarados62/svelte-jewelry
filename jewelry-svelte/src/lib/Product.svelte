@@ -1,12 +1,9 @@
 <script>
 	/**
-	 * @type {number}
+	 * @type {any}
 	 */
 	// @ts-ignore
-	export let productIndex;
-	import { page } from '$app/stores';
-	// @ts-ignore
-	const product = $page.data.products[productIndex];
+	export let productData;
 
 	let changeImg = false;
 </script>
@@ -14,14 +11,14 @@
 <div class="image-container">
 	<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 	<img
-		src={changeImg ? product.images[0] : product.images[1]}
+		src={changeImg ? productData.images[0] : productData.images[1]}
 		on:mouseover={() => (changeImg = !changeImg)}
 		on:mouseleave={() => (changeImg = !changeImg)}
-		alt={product.title}
+		alt={productData.title}
 	/>
 	<div class="price-box">
-		<span>{product.title}</span>
-		<span>{product.price}</span>
+		<span>{productData.title}</span>
+		<span>{productData.price}</span>
 	</div>
 </div>
 

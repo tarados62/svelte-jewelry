@@ -1,13 +1,14 @@
 <script>
 	// @ts-nocheck
-	import { page } from '$app/stores';
+	export let data;
 	import Product from '$lib/Product.svelte';
-	const products = $page.data.products;
 </script>
 
 <div class="wrapper-products">
-	{#each products as product, index}
-		<Product productIndex={index} />
+	{#each data.products as product}
+		<a href="/{product.id}">
+			<Product productData={product} />
+		</a>
 	{/each}
 </div>
 
