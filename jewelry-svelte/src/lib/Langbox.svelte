@@ -63,6 +63,7 @@
 
 <style scoped>
 	.langSelector {
+		color: black;
 		width: calc(60px + 2 * ((100vw - 320px) / 1518));
 		padding-left: 12%;
 		position: relative;
@@ -82,6 +83,7 @@
 	}
 
 	.langSelector svg {
+		color: black;
 		width: 18px;
 		height: 18px;
 	}
@@ -91,6 +93,7 @@
 	}
 
 	.sub-menu {
+		color: black;
 		width: calc(60px + 2 * ((100vw - 320px) / 1518));
 		display: flex;
 		flex-direction: column;
