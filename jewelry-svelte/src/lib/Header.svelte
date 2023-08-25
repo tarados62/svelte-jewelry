@@ -4,7 +4,6 @@
 	import Menu from '$lib/Menu.svelte';
 	import phone from '$lib/images/phone-receiver.svg';
 	import cart from '$lib/images/cart.svg';
-	import Langbox from '$lib/Langbox.svelte';
 	import { localeName } from '../stores';
 	import Dropdown from './Dropdown.svelte';
 	$: l = $page.data.locale['EN'];
@@ -40,10 +39,9 @@
 			</a>
 		</div>
 	</div>
-	<Dropdown />
 	<div class="langbox-basket">
 		<div class="langbox">
-			<Langbox />
+			<Dropdown />
 		</div>
 		<div class="basket">
 			<a href="/">
