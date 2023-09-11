@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { productId, cart } from '../../stores';
 	export let data;
-	console.log();
-
 	let elemCarousel: HTMLDivElement;
 	const unsplashIds = data.product.image_list;
 
@@ -25,8 +25,20 @@
 	function carouselThumbnail(index: number) {
 		elemCarousel.scroll(elemCarousel.clientWidth * index, 0);
 	}
-	let markdown = false;
-	const product = data.product;
+
+	let product = data.product;
+	product.quantity = 1;
+	function addToCart(product: any) {
+		$productId = product.id;
+		for (let item of $cart) {
+			if (item.id === product.id) {
+				product.quantity += 1;
+				$cart = $cart;
+				return;
+			}
+		}
+		$cart = [...$cart, product];
+	}
 </script>
 
 <div class="product-container">
@@ -85,7 +97,8 @@
 			<button
 				type="button"
 				on:click={() => {
-					console.log($page.params);
+					goto('/cart');
+					addToCart(product);
 				}}
 				class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline"
 			>
