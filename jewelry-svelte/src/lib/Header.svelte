@@ -3,8 +3,8 @@
 	import { Hamburger } from 'svelte-hamburgers';
 	import Menu from '$lib/Menu.svelte';
 	import phone from '$lib/images/phone-receiver.svg';
-	import cart from '$lib/images/cart.svg';
-	import { localeName } from '../stores';
+	import cartImg from '$lib/images/cart.svg';
+	import { localeName, cart } from '../stores';
 	import Dropdown from './Dropdown.svelte';
 	$: l = $page.data.locale['EN'];
 	$: if ($localeName == 'EN') {
@@ -45,8 +45,8 @@
 		</div>
 		<div class="basket">
 			<a href="/">
-				<img src={cart} alt="" />
-				<span>0</span>
+				<img src={cartImg} alt="" />
+				<span>{$cart.length}</span>
 			</a>
 		</div>
 	</div>

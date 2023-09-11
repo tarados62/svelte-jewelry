@@ -31,32 +31,31 @@
 	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 </script>
 
-<p>There are {$cart.length} items in your cart</p>
-
 <div class="cart-list">
 	{#each $cart as item}
 		{#if item.quantity > 0}
 			<div class="cart-item">
 				<img width="50" src={item.image_list[0]} alt={item.title} />
-				<div>{item.title}</div>
-				<div>
+				<div class="item2">{item.title}</div>
+				<div class="item3">
 					{item.quantity}
 					<button on:click={() => plusItem(item)}>+</button>
 					<button on:click={() => minusItem(item)}>-</button>
 				</div>
-				<p>₹{item.price * item.quantity}</p>
+				<div class="item4">€{item.price * item.quantity}</div>
 			</div>
+			<hr color="#ff0000" />
 		{/if}
 	{/each}
 	<div class="total">
-		<h4>Total: ₹ {total}</h4>
+		<h4>Total: € {total}</h4>
 	</div>
 </div>
 
 <style>
 	.cart-item {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: auto 1fr auto 1fr;
 	}
 
 	.total {
@@ -64,7 +63,18 @@
 	}
 
 	.cart-list {
-		border: 2px solid;
-		padding: 10px;
+		margin-top: 2rem;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 6%;
+	}
+	.item2,
+	.item3 {
+		justify-self: center;
+		align-self: center;
+	}
+	.item4 {
+		justify-self: end;
+		align-self: center;
 	}
 </style>
