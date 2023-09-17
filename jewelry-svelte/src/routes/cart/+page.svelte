@@ -50,6 +50,10 @@
 	<div class="total">
 		<h4>Total: € {total}</h4>
 	</div>
+	<div class="grid grid-cols-5 gap-2">
+		<a href="/" class="btn variant-filled-secondary col-end-5">ContinueShopping</a>
+		<div class="btn variant-filled-success col-end-6">BasketCheckout</div>
+	</div>
 </div>
 
 <style>
