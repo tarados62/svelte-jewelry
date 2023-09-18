@@ -31,23 +31,23 @@
 	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 </script>
 
-<div class="cart-list">
+<div class="grid grid-cols-1 gap-2 mt-4">
 	{#each $cart as item}
 		{#if item.quantity > 0}
-			<div class="cart-item">
-				<img width="50" src={item.image_list[0]} alt={item.title} />
-				<div class="item2">{item.title}</div>
-				<div class="item3">
+			<div class="grid grid-cols-5 place-items-center">
+				<img class="place-self-start" width="50" src={item.image_list[0]} alt={item.title} />
+				<div class="col-span-2">{item.title}</div>
+				<div class="col-end-5">
 					{item.quantity}
 					<button on:click={() => plusItem(item)}>+</button>
 					<button on:click={() => minusItem(item)}>-</button>
 				</div>
-				<div class="item4">€{item.price * item.quantity}</div>
+				<div class="place-self-end p-4 col-end-6">€{item.price * item.quantity}</div>
 			</div>
 			<hr color="#ff0000" />
 		{/if}
 	{/each}
-	<div class="total">
+	<div class="place-self-end p-4">
 		<h4>Total: € {total}</h4>
 	</div>
 	<div class="grid grid-cols-5 gap-2">
@@ -55,30 +55,3 @@
 		<div class="btn variant-filled-success col-end-6">BasketCheckout</div>
 	</div>
 </div>
-
-<style>
-	.cart-item {
-		display: grid;
-		grid-template-columns: auto 1fr auto 1fr;
-	}
-
-	.total {
-		text-align: right;
-	}
-
-	.cart-list {
-		margin-top: 2rem;
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 6%;
-	}
-	.item2,
-	.item3 {
-		justify-self: center;
-		align-self: center;
-	}
-	.item4 {
-		justify-self: end;
-		align-self: center;
-	}
-</style>
