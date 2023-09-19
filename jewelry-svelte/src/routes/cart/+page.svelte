@@ -1,6 +1,9 @@
 <script>
+	// @ts-nocheck
+
 	import { page } from '$app/stores';
-	import { productId, cart } from '../../stores';
+	import { productId, cart, localeName } from '../../stores';
+	$: t = $page.data.locale[$localeName];
 	let products = $page.data.products;
 	let product = products[$productId];
 
@@ -51,7 +54,7 @@
 		<h4>Total: € {total}</h4>
 	</div>
 	<div class="grid grid-cols-5 gap-2">
-		<a href="/" class="btn variant-filled-secondary col-end-5">ContinueShopping</a>
-		<div class="btn variant-filled-success col-end-6">BasketCheckout</div>
+		<a href="/" class="btn variant-filled-secondary col-end-5">{t['ContinueShopping']}</a>
+		<div class="btn variant-filled-success col-end-6">{t['BasketCheckout']}</div>
 	</div>
 </div>

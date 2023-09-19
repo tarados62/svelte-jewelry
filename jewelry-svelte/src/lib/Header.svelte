@@ -1,4 +1,6 @@
 <script>
+	// @ts-nocheck
+
 	import { page } from '$app/stores';
 	import { Hamburger } from 'svelte-hamburgers';
 	import Menu from '$lib/Menu.svelte';
@@ -6,16 +8,7 @@
 	import cartImg from '$lib/images/cart.svg';
 	import { localeName, cart } from '../stores';
 	import Dropdown from './Dropdown.svelte';
-	$: l = $page.data.locale['EN'];
-	$: if ($localeName == 'EN') {
-		l = $page.data.locale['EN'];
-	} else if ($localeName == 'ES') {
-		l = $page.data.locale['ES'];
-	} else if ($localeName == 'UA') {
-		l = $page.data.locale['UA'];
-	} else if ($localeName == 'RU') {
-		l = $page.data.locale['RU'];
-	}
+	$: t = $page.data.locale[$localeName];
 	/**
 	 * @type {any}
 	 */
@@ -44,7 +37,7 @@
 			<Dropdown />
 		</div>
 		<div class="basket">
-			<a href="/">
+			<a href="/cart">
 				<img src={cartImg} alt="" />
 				<span>{$cart.length}</span>
 			</a>
@@ -57,13 +50,13 @@
 <nav>
 	<div class="links">
 		<a href="/">
-			{l['MenuHome']}
+			{t['MenuHome']}
 		</a>
 		<a href="/about">
-			{l['MenuAboutUs']}
+			{t['MenuAboutUs']}
 		</a>
 		<a href="/contacts">
-			{l['MenuContacts']}
+			{t['MenuContacts']}
 		</a>
 	</div>
 </nav>
