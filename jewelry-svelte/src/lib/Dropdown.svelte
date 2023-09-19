@@ -4,6 +4,7 @@
 	import es from '$lib/images/es.svg';
 	import ua from '$lib/images/uk.svg';
 	import ru from '$lib/images/ru.svg';
+	// @ts-ignore
 	import { localeName } from '../stores';
 	import { page } from '$app/stores';
 	const fotos = [ru, ua, en, es];

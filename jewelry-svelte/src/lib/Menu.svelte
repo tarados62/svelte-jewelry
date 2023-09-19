@@ -1,18 +1,11 @@
 <script>
+	// @ts-nocheck
+
 	import { page } from '$app/stores';
 	import { fly, scale } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 	import { localeName } from '../stores';
-	$: l = $page.data.locale['EN'];
-	$: if ($localeName == 'EN') {
-		l = $page.data.locale['EN'];
-	} else if ($localeName == 'ES') {
-		l = $page.data.locale['ES'];
-	} else if ($localeName == 'UA') {
-		l = $page.data.locale['UA'];
-	} else if ($localeName == 'RU') {
-		l = $page.data.locale['RU'];
-	}
+	$: t = $page.data.locale[$localeName];
 
 	/**
 	 * @type {any}
@@ -26,13 +19,13 @@
 {#if open}
 	<div class="menu" transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }}>
 		<a href="/" on:click={click} transition:fly={{ y: -15, delay: 50 * 0 }}>
-			{l['MenuHome']}
+			{t['MenuHome']}
 		</a>
 		<a href="/about" on:click={click} transition:fly={{ y: -15, delay: 50 * 1 }}>
-			{l['MenuAboutUs']}
+			{t['MenuAboutUs']}
 		</a>
 		<a href="/contacts" on:click={click} transition:fly={{ y: -15, delay: 50 * 2 }}>
-			{l['MenuContacts']}
+			{t['MenuContacts']}
 		</a>
 		<div class="bar" transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }} />
 	</div>
