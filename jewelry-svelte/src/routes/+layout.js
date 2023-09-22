@@ -1,9 +1,10 @@
 // @ts-nocheck
-import { SECRET_LOCALE_URL, SECRET_PRODUCTS_URL } from '$env/static/private';
+import { PUBLIC_LOCALE_URL, PUBLIC_PRODUCTS_URL } from '$env/static/public';
+
 /** @type {import('./$types').LayoutData} */
 export async function load() {
-	const response = await fetch(SECRET_LOCALE_URL);
-	const resp = await fetch(SECRET_PRODUCTS_URL);
+	const response = await fetch(PUBLIC_LOCALE_URL);
+	const resp = await fetch(PUBLIC_PRODUCTS_URL);
 	const data = await response.json();
 	const dataResp = await resp.json();
 	const products = dataResp['products'];

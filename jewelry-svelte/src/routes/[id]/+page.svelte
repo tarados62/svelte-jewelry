@@ -5,12 +5,12 @@
 	// @ts-ignore
 	import { page } from '$app/stores';
 	import { productId, cart } from '../../stores';
+	import { setItems } from '../../utils';
 	// @ts-ignore
 	export let data;
 	// @ts-ignore
 	let elemCarousel = HTMLDivElement;
 	const unsplashIds = data.product.image_list;
-
 	function carouselLeft() {
 		const x =
 			// @ts-ignore
@@ -51,6 +51,7 @@
 			}
 		}
 		$cart = [...$cart, product];
+		setItems($cart);
 	}
 </script>
 
