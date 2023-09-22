@@ -3,6 +3,7 @@
 
 	import { page } from '$app/stores';
 	import { productId, cart, localeName } from '../../stores';
+	import { setItems } from '../../utils';
 	$: t = $page.data.locale[$localeName];
 	let products = $page.data.products;
 	let product = products[$productId];
@@ -18,6 +19,7 @@
 				}
 				return;
 			}
+			setItems($cart);
 		}
 	};
 
@@ -28,6 +30,7 @@
 				$cart = $cart;
 				return;
 			}
+			setItems($cart);
 		}
 	};
 
