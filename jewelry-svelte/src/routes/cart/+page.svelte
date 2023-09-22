@@ -16,21 +16,22 @@
 					$cart = $cart;
 				} else {
 					$cart = $cart.filter((cartItem) => cartItem != product);
+					setItems($cart);
 				}
 				return;
 			}
-			setItems($cart);
 		}
+		setItems($cart);
 	};
 
-	const plusItem = (/** @type {{ id: any; }} */ product) => {
+	const plusItem = (/** @type {{ id: any; quantity: number; }} */ product) => {
 		for (let item of $cart) {
 			if (item.id === product.id) {
 				item.quantity += 1;
 				$cart = $cart;
+				setItems($cart);
 				return;
 			}
-			setItems($cart);
 		}
 	};
 
