@@ -44,11 +44,11 @@
 		</div>
 	</div>
 </section>
-<div class="logo">
+<div class="logo lg:text-lg sm:text-xl">
 	<span>JEWELRY</span>
 </div>
 <nav>
-	<div class="links">
+	<div class="links lg:text-lg sm:text-xl">
 		<a href="/">
 			{t['MenuHome']}
 		</a>

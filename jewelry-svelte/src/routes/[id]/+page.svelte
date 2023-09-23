@@ -8,37 +8,10 @@
 	import { setItems } from '../../utils';
 	// @ts-ignore
 	export let data;
-	// @ts-ignore
-	// let elemCarousel = HTMLDivElement;
-	// const unsplashIds = data.product.image_list;
-	// function carouselLeft() {
-	// 	const x =
-	// 		// @ts-ignore
-	// 		elemCarousel.scrollLeft === 0
-	// 			? // @ts-ignore
-	// 			  elemCarousel.clientWidth * elemCarousel.childElementCount // loop
-	// 			: // @ts-ignore
-	// 			  elemCarousel.scrollLeft - elemCarousel.clientWidth; // step left
-	// 	// @ts-ignore
-	// 	elemCarousel.scroll(x, 0);
-	// }
+	// Initialization for ES Users
+	import { Carousel, initTE } from 'tw-elements';
 
-	// function carouselRight() {
-	// 	const x =
-	// 		// @ts-ignore
-	// 		elemCarousel.scrollLeft === elemCarousel.scrollWidth - elemCarousel.clientWidth
-	// 			? 0 // loop
-	// 			: // @ts-ignore
-	// 			  elemCarousel.scrollLeft + elemCarousel.clientWidth; // step right
-	// 	// @ts-ignore
-	// 	elemCarousel.scroll(x, 0);
-	// }
-
-	// function carouselThumbnail(/** @type {number} */ index) {
-	// 	// @ts-ignore
-	// 	elemCarousel.scroll(elemCarousel.clientWidth * index, 0);
-	// }
-
+	initTE({ Carousel });
 	let product = data.product;
 	product.quantity = 1;
 	function addToCart(/** @type {{ id: any; quantity: number; }} */ product) {
@@ -59,17 +32,17 @@
 	<div class="grid grid-cols-1 grid-flow-row">
 		<div class="my-2 mx-0 uppercase tracking-wider text-xl">
 			{#if product.new_price}
-				<div class="current">
+				<div class="current lg:text-lg sm:text-xl">
 					{product.price} eur
 				</div>
-				<div class="red">
+				<div class="red lg:text-lg sm:text-xl">
 					{product.new_price} eur
 				</div>
 			{:else}
-				<div>{product.price} eur</div>
+				<div class="lg:text-lg sm:text-xl">{product.price} eur</div>
 			{/if}
 		</div>
-		<div class="uppercase text-xl tracking-wider">{product.title}</div>
+		<div class="uppercase lg:text-lg sm:text-xl tracking-wider">{product.title}</div>
 		<hr class="h-px my-4 bg-gray-900" />
 		<button
 			type="button"

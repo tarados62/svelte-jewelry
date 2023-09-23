@@ -17,7 +17,10 @@
 </script>
 
 {#if open}
-	<div class="menu" transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }}>
+	<div
+		class="menu lg:text-lg sm:text-xl"
+		transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }}
+	>
 		<a href="/" on:click={click} transition:fly={{ y: -15, delay: 50 * 0 }}>
 			{t['MenuHome']}
 		</a>
