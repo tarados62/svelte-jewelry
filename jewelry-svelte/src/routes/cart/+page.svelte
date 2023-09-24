@@ -57,8 +57,12 @@
 	<div class="place-self-end p-4">
 		<h4>Total: € {total}</h4>
 	</div>
-	<div class="grid grid-cols-5 gap-2">
-		<a href="/" class="btn variant-filled-secondary col-end-5">{t['ContinueShopping']}</a>
-		<div class="btn variant-filled-success col-end-6">{t['BasketCheckout']}</div>
+	<div class="grid grid-cols-5 gap-2 grid-rows-[3rem]">
+		<a href="/" class="btn variant-filled-secondary col-end-5 text-center rounded"
+			>{t['ContinueShopping']}</a
+		>
+		<button class="btn variant-filled-success col-end-6 text-center rounded"
+			>{t['BasketCheckout']}</button
+		>
 	</div>
 </div>
