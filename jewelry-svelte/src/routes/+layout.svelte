@@ -10,6 +10,12 @@
 	// Finally, your application's global stylesheet (sometimes labeled 'app.css')
 	import '../app.postcss';
 	import './styles.css';
+	import { onMount } from 'svelte';
+	import { loadCart } from '$lib/services/cart';
+
+	onMount(() => {
+		loadCart();
+	});
 </script>
 
 <div class="app">

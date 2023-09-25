@@ -6,24 +6,13 @@
 	import { page } from '$app/stores';
 	import { productId, cart } from '../../stores';
 	import { setItems } from '../../utils';
+	import { addToCart } from '$lib/services/cart';
 	// @ts-ignore
 	export let data;
 	let product = data.product;
 	product.quantity = 1;
-	function addToCart(/** @type {{ id: any; quantity: number; }} */ product) {
-		$productId = product.id;
-		for (let item of $cart) {
-			if (item.id === product.id) {
-				product.quantity += 1;
-				$cart = $cart;
-				return;
-			}
-		}
-		$cart = [...$cart, product];
-		setItems($cart);
-	}
 
-	let elemCarousel = HTMLDivElement;
+	let elemCarousel;
 	const unsplashIds = product.image_list;
 
 	function carouselLeft() {
@@ -49,7 +38,7 @@
 
 <div class="grid grid-cols-2 gap-2">
 	<div class="grid grid-cols-1 gap-2">
-		<div class="card p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+		<div class="p-4 grid grid-cols-[auto_1fr_auto] gap-2 items-center">
 			<!-- Button: Left -->
 			<button type="button" class="btn-icon variant-filled" on:click={carouselLeft}>
 				<i class="fa-solid fa-arrow-left" />
@@ -70,10 +59,26 @@
 			</div>
 			<!-- Button: Right -->
 			<button type="button" class="btn-icon variant-filled" on:click={carouselRight}>
-				<i class="fa-solid fa-arrow-right" />
+				<!-- svelte-ignore invalid-html-attribute -->
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					strokeWidth={1.5}
+					stroke="currentColor"
+					className="w-6 h-6"
+				>
+					<path
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+					/>
+				</svg>
+
+				<!-- <i class="fa-arrow-right" /> -->
 			</button>
 		</div>
-		<div class="card p-4 grid grid-cols-6 gap-4">
+		<div class="p-4 grid grid-cols-6 gap-1">
 			{#each unsplashIds as unsplashId, i}
 				<button type="button" on:click={() => carouselThumbnail(i)}>
 					<img class="rounded-container-token" src={unsplashId} alt={unsplashId} loading="lazy" />
