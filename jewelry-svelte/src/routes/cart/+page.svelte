@@ -18,10 +18,10 @@
 					$cart = $cart.filter((cartItem) => cartItem != product);
 					setItems($cart);
 				}
+				setItems($cart);
 				return;
 			}
 		}
-		setItems($cart);
 	};
 
 	const plusItem = (/** @type {{ id: any; quantity: number; }} */ product) => {
