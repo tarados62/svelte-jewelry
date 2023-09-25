@@ -6,8 +6,9 @@ export function addToCart(/** @type {{ id: any; quantity: number; }} */ product)
 	const cartItems = get(cart);
 	for (let item of cartItems) {
 		if (item.id === product.id) {
-			product.quantity += 1;
+			item.quantity += 1;
 			cart.set(cartItems);
+			setItems(cartItems);
 			return;
 		}
 	}
