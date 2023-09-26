@@ -17,6 +17,24 @@ export function addToCart(/** @type {{ id: any; quantity: number; }} */ product)
 	setItems(cartItems);
 }
 
+export function decrement(/** @type {{ id: any; quantity: number; }} */ product) {
+	let cartItems = get(cart);
+	for (let item of cartItems) {
+		if (item.id === product.id) {
+			if (product.quantity > 1) {
+				product.quantity -= 1;
+				cart.set(cartItems);
+			} else {
+				console.log(item.quantity);
+				cartItems = cartItems.filter((cartItem) => cartItem != product);
+				cart.set(cartItems);
+			}
+			setItems(cartItems);
+			return;
+		}
+	}
+};
+
 export function loadCart() {
 	const items = getItems();
 	cart.set(items);

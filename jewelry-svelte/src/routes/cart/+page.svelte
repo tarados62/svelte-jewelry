@@ -2,38 +2,12 @@
 	// @ts-nocheck
 
 	import { page } from '$app/stores';
+	import { addToCart, decrement } from '$lib/services/cart';
 	import { productId, cart, localeName } from '../../stores';
 	import { setItems } from '../../utils';
 	$: t = $page.data.locale[$localeName];
 	let products = $page.data.products;
 	let product = products[$productId];
-
-	const minusItem = (/** @type {{ id: any; quantity: number; }} */ product) => {
-		for (let item of $cart) {
-			if (item.id === product.id) {
-				if (product.quantity > 1) {
-					product.quantity -= 1;
-					$cart = $cart;
-				} else {
-					$cart = $cart.filter((cartItem) => cartItem != product);
-					setItems($cart);
-				}
-				setItems($cart);
-				return;
-			}
-		}
-	};
-
-	const plusItem = (/** @type {{ id: any; quantity: number; }} */ product) => {
-		for (let item of $cart) {
-			if (item.id === product.id) {
-				item.quantity += 1;
-				$cart = $cart;
-				setItems($cart);
-				return;
-			}
-		}
-	};
 
 	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 </script>
@@ -46,8 +20,8 @@
 				<div class="col-span-2">{item.title}</div>
 				<div class="col-end-5">
 					{item.quantity}
-					<button on:click={() => plusItem(item)}>+</button>
-					<button on:click={() => minusItem(item)}>-</button>
+					<button on:click={() => addToCart(item)}>+</button>
+					<button on:click={() => decrement(item)}>-</button>
 				</div>
 				<div class="place-self-end p-4 col-end-6">€{item.price * item.quantity}</div>
 			</div>
