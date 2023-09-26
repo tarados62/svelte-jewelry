@@ -6,7 +6,7 @@
 	import Menu from '$lib/Menu.svelte';
 	import phone from '$lib/images/phone-receiver.svg';
 	import cartImg from '$lib/images/cart.svg';
-	import { localeName, cart } from '../stores';
+	import { localeName, cart, tt } from '../stores';
 	import Dropdown from './Dropdown.svelte';
 	$: t = $page.data.locale[$localeName];
 	/**
@@ -50,7 +50,7 @@
 <nav>
 	<div class="links lg:text-lg sm:text-xl">
 		<a href="/">
-			{t['MenuHome']}
+			{$tt['MenuHome']}
 		</a>
 		<a href="/about">
 			{t['MenuAboutUs']}

@@ -12,9 +12,11 @@
 	import './styles.css';
 	import { onMount } from 'svelte';
 	import { loadCart } from '$lib/services/cart';
+	import { translate } from '$lib/services/translate';
 
 	onMount(() => {
 		loadCart();
+		translate();
 	});
 </script>
 

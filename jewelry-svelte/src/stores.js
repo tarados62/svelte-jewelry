@@ -1,5 +1,4 @@
 import { writable } from 'svelte/store';
-import { getItems } from './utils';
 
 export const localeName = writable('EN');
 

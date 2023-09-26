@@ -1,5 +1,5 @@
 import { get } from 'svelte/store';
-import { productId, cart } from '../../stores';
+import { localeName, cart } from '../../stores';
 import { getItems, setItems } from '../../utils';
 
 export function addToCart(/** @type {{ id: any; quantity: number; }} */ product) {
@@ -33,12 +33,13 @@ export function decrement(/** @type {{ id: any; quantity: number; }} */ product)
 			return;
 		}
 	}
-};
+}
 
 export function loadCart() {
 	const items = getItems();
 	cart.set(items);
 }
+
 // 	delProduct(state, index) {
 // 		state.cartProducts.splice(index, 1);
 // 		cart.setItems(state.cartProducts);
