@@ -1,14 +1,12 @@
 <script>
 	// @ts-nocheck
 
-	import { page } from '$app/stores';
 	import { Hamburger } from 'svelte-hamburgers';
 	import Menu from '$lib/Menu.svelte';
 	import phone from '$lib/images/phone-receiver.svg';
 	import cartImg from '$lib/images/cart.svg';
-	import { localeName, cart, tt } from '../stores';
+	import { cart, tt } from '../stores';
 	import Dropdown from './Dropdown.svelte';
-	$: t = $page.data.locale[$localeName];
 	/**
 	 * @type {any}
 	 */
@@ -53,10 +51,10 @@
 			{$tt['MenuHome']}
 		</a>
 		<a href="/about">
-			{t['MenuAboutUs']}
+			{$tt['MenuAboutUs']}
 		</a>
 		<a href="/contacts">
-			{t['MenuContacts']}
+			{$tt['MenuContacts']}
 		</a>
 	</div>
 </nav>

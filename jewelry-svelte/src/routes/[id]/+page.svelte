@@ -3,10 +3,8 @@
 
 	import { goto } from '$app/navigation';
 	// @ts-ignore
-	import { page } from '$app/stores';
-	import { productId, cart } from '../../stores';
-	import { setItems } from '../../utils';
-	import { addToCart, translate } from '$lib/services/cart';
+	import { tt } from '../../stores';
+	import { addToCart } from '$lib/services/cart';
 	// @ts-ignore
 	export let data;
 	let product = data.product;
@@ -109,12 +107,11 @@
 			on:click={() => {
 				goto('/cart');
 				addToCart(product);
-				translate();
 			}}
 			class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 uppercase transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline"
 		>
-			To card
+			{$tt["ProductStatusBasket"]}
 		</button>
-		<span class="lg:text-lg sm:text-xl">description</span>
+		<span class="lg:text-lg sm:text-xl">{$tt["RaspberryJellyEarringsDescription"]}</span>
 	</div>
 </div>

@@ -1,12 +1,8 @@
 <script>
 	// @ts-nocheck
-
-	import { page } from '$app/stores';
 	import { fly, scale } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
-	import { localeName } from '../stores';
-	$: t = $page.data.locale[$localeName];
-
+	import { tt } from '../stores';
 	/**
 	 * @type {any}
 	 */
@@ -22,13 +18,13 @@
 		transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }}
 	>
 		<a href="/" on:click={click} transition:fly={{ y: -15, delay: 50 * 0 }}>
-			{t['MenuHome']}
+			{$tt['MenuHome']}
 		</a>
 		<a href="/about" on:click={click} transition:fly={{ y: -15, delay: 50 * 1 }}>
-			{t['MenuAboutUs']}
+			{$tt['MenuAboutUs']}
 		</a>
 		<a href="/contacts" on:click={click} transition:fly={{ y: -15, delay: 50 * 2 }}>
-			{t['MenuContacts']}
+			{$tt['MenuContacts']}
 		</a>
 		<div class="bar" transition:scale={{ duration: 750, easing: quadOut, opacity: 1 }} />
 	</div>
