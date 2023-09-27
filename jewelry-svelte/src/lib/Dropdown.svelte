@@ -7,7 +7,11 @@
 	// @ts-ignore
 	import { localeName } from '../stores';
 	import { page } from '$app/stores';
+	import { translate } from './services/translate';
 	const fotos = [ru, ua, en, es];
+	$: if ($localeName) {
+		translate();
+	};
 	$: foto = en;
 	$: if ($localeName == 'EN') {
 		foto = en;
