@@ -45,23 +45,22 @@
 	}
 </script>
 
-<div class="grid grid-cols-1 gap-2">
-	<div class="p-4 grid grid-cols-1 gap-2 items-center">
-		<!-- <button type="button" class="btn-icon variant-filled" on:click={carouselLeft}>
+<div class="grid grid-cols-1 grid-rows-[45vw]">
+	<!-- <button type="button" class="btn-icon variant-filled" on:click={carouselLeft}>
 			<i class="fa-solid fa-arrow-left" />
 		</button> -->
 
-		<div
-			class="snap-center rounded-container-token w-auto h-64 bg-center bg-contain bg-no-repeat bg-[url('https://alloe-vega-app.party.space//media/cache/cf/5e/cf5e1dd618d82d4c8d166a58a8f083b6.jpg')]"
-		/>
-		<!-- <img
+	<div
+		class="w-full h-full bg-top bg-contain bg-no-repeat bg-[url('https://alloe-vega-app.party.space//media/cache/cf/5e/cf5e1dd618d82d4c8d166a58a8f083b6.jpg')]"
+	/>
+	<!-- <img
                     class="snap-center w-[1024px] rounded-container-token"
                     src={slider}
                     alt={slider}
                     loading="lazy"
                 /> -->
 
-		<!-- <button type="button" class="btn-icon variant-filled" on:click={carouselRight}>
+	<!-- <button type="button" class="btn-icon variant-filled" on:click={carouselRight}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
@@ -77,7 +76,6 @@
 				/>
 			</svg>
 		</button> -->
-	</div>
 	<div class="p-4 grid grid-cols-6 gap-1">
 		{#each sliders as slider, i}
 			<button type="button" on:click={() => carouselThumbnail(i)}>
