@@ -46,19 +46,22 @@
 </script>
 
 <div class="grid grid-cols-1 grid-rows-[45vw]">
-	<!-- <button type="button" class="btn-icon variant-filled" on:click={carouselLeft}>
+	<div class="relative w-full h-full bg-top bg-contain bg-no-repeat bg-[url('{sliders[0]}')]">
+		<button
+			type="button"
+			class="absolute top-[40%] left-[5%] btn-icon variant-filled"
+			on:click={carouselLeft}
+		>
 			<i class="fa-solid fa-arrow-left" />
-		</button> -->
-
-	<div
-		class="w-full h-full bg-top bg-contain bg-no-repeat bg-[url('https://alloe-vega-app.party.space//media/cache/cf/5e/cf5e1dd618d82d4c8d166a58a8f083b6.jpg')]"
-	/>
-	<!-- <img
-                    class="snap-center w-[1024px] rounded-container-token"
-                    src={slider}
-                    alt={slider}
-                    loading="lazy"
-                /> -->
+		</button>
+		<button
+			type="button"
+			class="absolute top-[40%] right-[5%] btn-icon variant-filled"
+			on:click={carouselRight}
+		>
+			<i class="fa-solid fa-arrow-right" />
+		</button>
+	</div>
 
 	<!-- <button type="button" class="btn-icon variant-filled" on:click={carouselRight}>
 			<svg
