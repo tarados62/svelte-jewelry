@@ -5,7 +5,7 @@
 	import Menu from '$lib/Menu.svelte';
 	import phone from '$lib/images/phone-receiver.svg';
 	import cartImg from '$lib/images/cart.svg';
-	import { cart, tt } from '../stores';
+	import { cart, tt } from '$lib/services/stores';
 	import Dropdown from './Dropdown.svelte';
 	/**
 	 * @type {any}

@@ -1,5 +1,5 @@
 import { get } from 'svelte/store';
-import { localeName, cart } from '../../stores';
+import { localeName, cart } from './stores';
 import { getItems, setItems } from '../../utils';
 
 export function addToCart(/** @type {{ id: any; quantity: number; }} */ product) {

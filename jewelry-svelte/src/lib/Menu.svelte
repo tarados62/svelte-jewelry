@@ -2,7 +2,7 @@
 	// @ts-nocheck
 	import { fly, scale } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
-	import { tt } from '../stores';
+	import { tt } from '$lib/services/stores';
 	/**
 	 * @type {any}
 	 */

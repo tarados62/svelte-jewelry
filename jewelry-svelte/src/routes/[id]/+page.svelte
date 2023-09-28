@@ -3,7 +3,7 @@
 
 	import { goto } from '$app/navigation';
 	// @ts-ignore
-	import { tt } from '../../stores';
+	import { tt } from '$lib/services/stores';
 	import { addToCart } from '$lib/services/cart';
 	// @ts-ignore
 	export let data;

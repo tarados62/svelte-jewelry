@@ -5,9 +5,10 @@
 	import ua from '$lib/images/uk.svg';
 	import ru from '$lib/images/ru.svg';
 	// @ts-ignore
-	import { localeName } from '../stores';
 	import { page } from '$app/stores';
 	import { translate } from './services/translate';
+	import { localeName } from '$lib/services/stores';
+	
 	const fotos = [ru, ua, en, es];
 	$: if ($localeName) {
 		translate();

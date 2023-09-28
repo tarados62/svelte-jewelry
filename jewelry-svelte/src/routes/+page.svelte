@@ -6,7 +6,7 @@
 </script>
 
 <div class="wrapper-products">
-	{#each data.products as product}
+	{#each productsList as product}
 		<a href="/{product.id}">
 			<Product productData={product} />
 		</a>

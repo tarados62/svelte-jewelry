@@ -3,11 +3,7 @@
 
 	import { page } from '$app/stores';
 	import { addToCart, decrement } from '$lib/services/cart';
-	import { productId, cart, localeName } from '../../stores';
-	import { setItems } from '../../utils';
-	$: t = $page.data.locale[$localeName];
-	let products = $page.data.products;
-	let product = products[$productId];
+	import { cart, tt } from '$lib/services/stores';
 
 	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 </script>
@@ -33,10 +29,10 @@
 	</div>
 	<div class="grid grid-cols-5 gap-2 grid-rows-[3rem]">
 		<a href="/" class="btn variant-filled-secondary col-end-5 text-center rounded"
-			>{t['ContinueShopping']}</a
+			>{$tt['ContinueShopping']}</a
 		>
 		<button class="btn variant-filled-success col-end-6 text-center rounded"
-			>{t['BasketCheckout']}</button
+			>{$tt['BasketCheckout']}</button
 		>
 	</div>
 </div>

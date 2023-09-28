@@ -1,5 +1,5 @@
 import { get } from 'svelte/store';
-import { localeName, tt } from '../../stores';
+import { localeName, tt } from './stores';
 import { page } from '$app/stores';
 
 export function translate() {
