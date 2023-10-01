@@ -10,12 +10,10 @@
 	export let data;
 	let product = data.product;
 	product.quantity = 1;
-
-	
 </script>
 
 <div class="grid grid-cols-2 gap-2">
-	<Slider />
+	<Slider sliders={product.image_list} />
 
 	<div class="grid grid-cols-1 grid-flow-row grid-rows-[5rem_3rem_3rem_1fr] gap-1">
 		<div class="my-2 mx-0 uppercase tracking-wider text-xl">
@@ -42,8 +40,8 @@
 			}}
 			class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 uppercase transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline"
 		>
-			{$tt["ProductStatusBasket"]}
+			{$tt['ProductStatusBasket']}
 		</button>
-		<span class="lg:text-lg sm:text-xl">{$tt["RaspberryJellyEarringsDescription"]}</span>
+		<span class="lg:text-lg sm:text-xl">{$tt['RaspberryJellyEarringsDescription']}</span>
 	</div>
 </div>
