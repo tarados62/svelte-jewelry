@@ -39,7 +39,7 @@
 <div>
 	<div class="p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
 		<!-- Button: Left -->
-		<button type="button" class="btn-icon variant-soft" on:click={carouselLeft}>
+		<button type="button" class="btn-icon variant-filled" on:click={carouselLeft}>
 			<i class="fa-solid fa-arrow-left" />
 		</button>
 		<!-- Full Images -->
@@ -54,8 +54,8 @@
 			{/each}
 		</div>
 		<!-- Button: Right -->
-		<button type="button" class="btn-icon variant-soft" on:click={carouselRight}>
-			<i class="fa-solid fa-arrow-right" />
+		<button type="button" class="btn-icon variant-filled" on:click={carouselRight}>
+			<i class="fa-solid-900 fa-arrow-right" />
 		</button>
 	</div>
 

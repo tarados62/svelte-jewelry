@@ -12,7 +12,7 @@
 	product.quantity = 1;
 </script>
 
-<i class="fa-solid fa-arrow-right" /><i class="fa-solid fa-arrow-right" />
+<i class="fa fa-cart-arrow-down" />
 <div class="grid grid-cols-2 gap-2">
 	<Slider sliders={product.image_list} />
 
