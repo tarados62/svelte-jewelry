@@ -76,6 +76,18 @@ export function loadCart() {
 	cart.set(items);
 }
 
+export function removeProduct(/** @type {{ id: any; quantity: number; }} */ product) {
+	/**
+	 * @type {any[]}
+	 */
+	let cartItems = get(cart);
+	cartItems = cartItems.filter((cartItem) => cartItem != product);
+	// @ts-ignore
+	cart.set(cartItems);
+	setItems(cartItems);
+	return;
+}
+
 // 	delProduct(state, index) {
 // 		state.cartProducts.splice(index, 1);
 // 		cart.setItems(state.cartProducts);

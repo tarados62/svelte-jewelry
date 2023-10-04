@@ -2,7 +2,7 @@
 	// @ts-nocheck
 
 	import { page } from '$app/stores';
-	import { addToCart, decrement } from '$lib/services/cart';
+	import { addToCart, decrement, removeProduct } from '$lib/services/cart';
 	import { cart, tt } from '$lib/services/stores';
 
 	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -11,7 +11,7 @@
 <div class="grid grid-cols-1 gap-2 mt-4">
 	{#each $cart as item}
 		{#if item.quantity > 0}
-			<div class="grid grid-cols-5 place-items-center">
+			<div class="grid grid-cols-6 place-items-center">
 				<img class="place-self-start" width="50" src={item.image_list[0]} alt={item.title} />
 				<div class="col-span-2">{item.title}</div>
 				<div class="col-end-5">
@@ -19,7 +19,8 @@
 					<button on:click={() => addToCart(item)}>+</button>
 					<button on:click={() => decrement(item)}>-</button>
 				</div>
-				<div class="place-self-end p-4 col-end-6">€{item.price * item.quantity}</div>
+				<div class="col-end-6"><i class="fa fa-times" aria-hidden="true" on:click={() => removeProduct(item)}></i></div>
+				<div class="place-self-end p-4 col-end-7">€{item.price * item.quantity}</div>
 			</div>
 			<hr color="#ff0000" />
 		{/if}
