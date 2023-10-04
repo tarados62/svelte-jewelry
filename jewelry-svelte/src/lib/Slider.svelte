@@ -55,7 +55,7 @@
 		</div>
 		<!-- Button: Right -->
 		<button type="button" class="btn-icon variant-filled" on:click={carouselRight}>
-			<i class="fa-solid-900 fa-arrow-right" />
+			<i class="fa-solid fa-arrow-right" />
 		</button>
 	</div>
 
