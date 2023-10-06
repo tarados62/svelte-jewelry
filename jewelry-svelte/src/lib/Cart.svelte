@@ -1,7 +1,5 @@
 <script>
 	// @ts-nocheck
-
-	import { page } from '$app/stores';
 	import { addToCart, decrement, removeProduct } from '$lib/services/cart';
 	import { cart, tt } from '$lib/services/stores';
 

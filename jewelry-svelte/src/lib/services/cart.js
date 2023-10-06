@@ -27,14 +27,18 @@ function setItems(items) {
 	}
 }
 
-export function addToCart(/** @type {{ id: any; quantity: number; }} */ product) {
+export function addToCart(/** @type {{ id: any; quantity: number; availability: any}} */ product) {
 	/**
-	 * @type {{ id: any; quantity: number; }[]}
+	 * @type {{ id: any; quantity: number; availability: any }[]}
 	 */
 	const cartItems = get(cart);
+	const max = product.availability[0].quantity;
+	console.log(max);
 	for (let item of cartItems) {
 		if (item.id === product.id) {
-			item.quantity += 1;
+			if (item.quantity < max) {
+				item.quantity += 1;
+			}
 			// @ts-ignore
 			cart.set(cartItems);
 			setItems(cartItems);
@@ -87,27 +91,3 @@ export function removeProduct(/** @type {{ id: any; quantity: number; }} */ prod
 	setItems(cartItems);
 	return;
 }
-
-// 	delProduct(state, index) {
-// 		state.cartProducts.splice(index, 1);
-// 		cart.setItems(state.cartProducts);
-// 	},
-// 	increment(state, index) {
-// 		changeQuantity(state, index, 1);
-// 		cart.setItems(state.cartProducts);
-// 	},
-// 	decrement(state, index) {
-// 		changeQuantity(state, index, -1);
-// 		cart.setItems(state.cartProducts);
-// 	},
-// 	clearBasket(state) {
-// 		state.cartProducts = [];
-// 	},
-// 	addProductToCart(state, product) {
-// 		state.cartProducts.push(product);
-// 		cart.setItems(state.cartProducts);
-// 	},
-// 	addProductFromCart(state) {
-// 		state.cartProducts = cart.getItems();
-// 	}
-// };
