@@ -1,8 +1,10 @@
-<script lang="ts">
-	import { popup, type PopupSettings } from '@skeletonlabs/skeleton';
+<script>
+	// @ts-nocheck
+
+	import { popup } from '@skeletonlabs/skeleton';
 	import { tt } from '$lib/services/stores';
-	export let msg: number = 0;
-	const popupClick: PopupSettings = {
+	export let msg;
+	const popupClick = {
 		event: 'click',
 		target: 'popupClick',
 		placement: 'top'
