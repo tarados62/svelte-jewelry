@@ -33,7 +33,7 @@
 		{/if}
 	{/each}
 	<div class="place-self-end p-4">
-		<h4>Total: € {total}</h4>
+		<h4>{$tt['BasketTotalPrice']}: € {total}</h4>
 	</div>
 	<div class="flex justify-end">
 		<button
