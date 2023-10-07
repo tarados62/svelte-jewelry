@@ -33,7 +33,6 @@ export function addToCart(/** @type {{ id: any; quantity: number; availability: 
 	 */
 	const cartItems = get(cart);
 	const max = product.availability[0].quantity;
-	console.log(max);
 	for (let item of cartItems) {
 		if (item.id === product.id) {
 			if (item.quantity < max) {

@@ -2,6 +2,8 @@
 	// @ts-nocheck
 	import { addToCart, decrement, removeProduct } from '$lib/services/cart';
 	import { cart, tt } from '$lib/services/stores';
+	import Popup from './Popup.svelte';
+	import { goto } from '$app/navigation';
 
 	$: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 </script>
@@ -14,7 +16,12 @@
 				<div class="col-span-2">{item.title}</div>
 				<div class="col-end-5">
 					{item.quantity}
-					<button on:click={() => addToCart(item)}>+</button>
+					{#if item.quantity == item.availability[0].quantity}
+						<Popup msg={item.availability[0].quantity} />
+					{:else}
+						<button on:click={() => addToCart(item)}>+</button>
+					{/if}
+
 					<button on:click={() => decrement(item)}>-</button>
 				</div>
 				<div class="col-end-6">
@@ -28,12 +35,14 @@
 	<div class="place-self-end p-4">
 		<h4>Total: € {total}</h4>
 	</div>
-	<div class="grid grid-cols-5 gap-2 grid-rows-[3rem]">
-		<a href="/" class="btn variant-filled-secondary col-end-5 text-center rounded"
-			>{$tt['ContinueShopping']}</a
+	<div class="flex justify-end">
+		<button
+			class="btn variant-filled-secondary col-end-4 text-center rounded mr-4"
+			on:click={() => goto('/')}>{$tt['ContinueShopping']}</button
 		>
-		<button class="btn variant-filled-success col-end-6 text-center rounded"
-			>{$tt['BasketCheckout']}</button
+		<button
+			class="btn variant-filled-success col-end-5 text-center rounded"
+			on:click={() => goto('/')}>{$tt['BasketCheckout']}</button
 		>
 	</div>
 </div>

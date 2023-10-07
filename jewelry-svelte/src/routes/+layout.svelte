@@ -6,6 +6,9 @@
 
 	// This contains the bulk of Skeletons required styles:
 	import '@skeletonlabs/skeleton/styles/skeleton.css';
+	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
+
+	import { storePopup } from '@skeletonlabs/skeleton';
 
 	// Finally, your application's global stylesheet (sometimes labeled 'app.css')
 	import '../app.postcss';
@@ -17,6 +20,7 @@
 	onMount(() => {
 		loadCart();
 		translate();
+		storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 	});
 </script>
 
