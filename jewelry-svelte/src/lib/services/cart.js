@@ -16,21 +16,24 @@ function clearLocalStorage() {
 	localStorage.removeItem('cart');
 }
 
-// @ts-ignore
+/**
+ *
+ * @param {import('$lib/types').CartProduct[]} items
+ */
 function setItems(items) {
 	try {
-		items = JSON.stringify(items);
-		localStorage.setItem('cart', items);
+		const itemsStr = JSON.stringify(items);
+		localStorage.setItem('cart', itemsStr);
 	} catch (err) {
-		// @ts-ignore
-		console.log('Поймали ошибку! Вот она: ', err.message);
+		console.log('Поймали ошибку! Вот она: ', err);
 	}
 }
 
-export function addToCart(/** @type {{ id: any; quantity: number; availability: any}} */ product) {
-	/**
-	 * @type {{ id: any; quantity: number; availability: any }[]}
-	 */
+/**
+ *
+ * @param {import('$lib/types').CartProduct} product
+ */
+export function addToCart(product) {
 	const cartItems = get(cart);
 	const max = product.availability[0].quantity;
 	for (let item of cartItems) {
@@ -38,14 +41,12 @@ export function addToCart(/** @type {{ id: any; quantity: number; availability: 
 			if (item.quantity < max) {
 				item.quantity += 1;
 			}
-			// @ts-ignore
 			cart.set(cartItems);
 			setItems(cartItems);
 			return;
 		}
 	}
 	cartItems.push(product);
-	// @ts-ignore
 	cart.set([...cartItems]);
 	setItems(cartItems);
 }

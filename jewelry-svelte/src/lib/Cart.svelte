@@ -9,7 +9,7 @@
 </script>
 
 <div class="grid grid-cols-1 gap-2 mt-4">
-	{#each $cart as item}
+	{#each $cart as item, i}
 		{#if item.quantity > 0}
 			<div class="grid grid-cols-6 place-items-center">
 				<img class="place-self-start" width="50" src={item.image_list[0]} alt={item.title} />
@@ -17,7 +17,7 @@
 				<div class="col-end-5">
 					{item.quantity}
 					{#if item.quantity == item.availability[0].quantity}
-						<Popup msg={item.availability[0].quantity} />
+						<Popup indx={i} />
 					{:else}
 						<button on:click={() => addToCart(item)}>+</button>
 					{/if}

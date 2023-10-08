@@ -43,7 +43,8 @@
 			<i class="fa-solid fa-arrow-left" />
 		</button>
 		<!-- Full Images -->
-		<div bind:this={elemCarousel} class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
+		<div bind:this={elemCarousel} class="snap-x snap-mandatory scroll-smooth overflow-x-auto">
+			flex
 			{#each sliders as slider}
 				<img
 					class="snap-center w-[1024px] rounded-container-token"
