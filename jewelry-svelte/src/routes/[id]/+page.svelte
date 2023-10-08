@@ -5,7 +5,7 @@
 	// @ts-ignore
 	import { tt } from '$lib/services/stores';
 	import { addToCart } from '$lib/services/cart';
-	import Slider from '$lib/Slider.svelte';
+	import Slider2 from '$lib/Slider2.svelte';
 	// @ts-ignore
 	export let data;
 	let product = data.product;
@@ -13,7 +13,7 @@
 </script>
 
 <div class="grid grid-cols-2 gap-2">
-	<Slider sliders={product.image_list} />
+	<Slider2 sliders={product.image_list} />
 
 	<div class="grid grid-cols-1 grid-flow-row grid-rows-[5rem_3rem_3rem_1fr] gap-1">
 		<div class="my-2 mx-0 uppercase tracking-wider text-xl">
