@@ -4,44 +4,29 @@
 	export let sliders;
 
 	// @ts-ignore
-	let elemCarousel;
-
+	let imageIndex = 0;
 	function carouselLeft() {
-		const x =
-			// @ts-ignore
-			elemCarousel.scrollLeft === 0
-				? // @ts-ignore
-				  elemCarousel.clientWidth * elemCarousel.childElementCount // loop
-				: // @ts-ignore
-				  elemCarousel.scrollLeft - elemCarousel.clientWidth; // step left
-		// @ts-ignore
-		elemCarousel.scroll(x, 0);
+		console.log('left');
 	}
 
 	function carouselRight() {
-		const x =
-			// @ts-ignore
-			elemCarousel.scrollLeft === elemCarousel.scrollWidth - elemCarousel.clientWidth
-				? 0 // loop
-				: // @ts-ignore
-				  elemCarousel.scrollLeft + elemCarousel.clientWidth; // step right
-		// @ts-ignore
-		elemCarousel.scroll(x, 0);
+		console.log('right');
 	}
 
-	// @ts-ignore
 	function carouselThumbnail(index) {
-		// @ts-ignore
-		elemCarousel.scroll(elemCarousel.clientWidth * index, 0);
+		imageIndex = index;
+		console.log(index);
 	}
 </script>
 
 <div>
 	<div class="p-4 grid grid-cols-1 grid-rows-[50vw] gap-4 items-center">
 		<div
-			bind:this={elemCarousel}
-			class="relative h-full w-full bg-cover bg-center bg-no-repeat bg-[url('https://alloe-vega-app.party.space//media/images/Raspberry_Jelly_Earrings_Image_1_750x.jpg')]"
+			class="relative h-full w-full bg-cover bg-center bg-no-repeat bg-[url('{sliders[
+				imageIndex
+			]}')]"
 		>
+			{imageIndex}: {sliders[imageIndex]}
 			<button
 				type="button"
 				class="absolute top-[45%] left-[1vw] btn-icon bg-initial"
