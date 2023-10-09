@@ -37,26 +37,44 @@
 </script>
 
 <div>
-	<div class="p-4 grid grid-cols-1 grid-rows-[45vw] gap-4 items-center">
-		<!-- <button type="button" class="btn-icon variant-filled" on:click={carouselLeft}>
-			<i class="fa-solid fa-arrow-left" />
-		</button> -->
+	<div class="p-4 grid grid-cols-1 grid-rows-[50vw] gap-4 items-center">
 		<div
 			bind:this={elemCarousel}
-			class="h-full w-full bg-cover bg-center bg-no-repeat bg-[url('https://alloe-vega-app.party.space//media/images/Raspberry_Jelly_Earrings_Image_1_750x.jpg')]"
+			class="relative h-full w-full bg-cover bg-center bg-no-repeat bg-[url('https://alloe-vega-app.party.space//media/images/Raspberry_Jelly_Earrings_Image_1_750x.jpg')]"
 		>
-			<!-- {#each sliders as slider}
-				<img
-					class="snap-center w-[1024px] rounded-container-token"
-					src={slider}
-					alt={slider}
-					loading="lazy"
-				/>
-			{/each} -->
+			<button
+				type="button"
+				class="absolute top-[45%] left-[1vw] btn-icon bg-initial"
+				on:click={carouselLeft}
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					class="w-6 h-6"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+				</svg>
+			</button>
+			<button
+				type="button"
+				class="absolute top-[45%] right-[1vw] btn-icon bg-initial"
+				on:click={carouselRight}
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					class="w-6 h-6"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+				</svg>
+			</button>
 		</div>
-		<!-- <button type="button" class="btn-icon variant-filled" on:click={carouselRight}>
-			<i class="fa-solid fa-arrow-right" />
-		</button> -->
 	</div>
 
 	<div class="p-4 grid grid-cols-6 gap-1">
