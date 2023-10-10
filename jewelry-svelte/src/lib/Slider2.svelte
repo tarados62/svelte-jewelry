@@ -20,16 +20,12 @@
 </script>
 
 <div>
-	<div class="p-4 grid grid-cols-1 grid-rows-[50vw] gap-4 items-center">
-		<div
-			class="relative h-full w-full bg-cover bg-center bg-no-repeat bg-[url('{sliders[
-				imageIndex
-			]}')]"
-		>
-			{imageIndex}: {sliders[imageIndex]}
+	<div class="p-4 grid grid-cols-1 grid-rows-[50vw] gap-4 place-items-center">
+		<div class="relative h-full w-full">
+			<img class="h-full w-auto flex justify-center absolute left-[3vw]" src="{sliders[imageIndex]}" alt="qq" />
 			<button
 				type="button"
-				class="absolute top-[45%] left-[1vw] btn-icon bg-initial"
+				class="absolute top-[40%] left-[3vw] btn-icon bg-initial"
 				on:click={carouselLeft}
 			>
 				<svg
@@ -38,14 +34,15 @@
 					viewBox="0 0 24 24"
 					stroke-width="1.5"
 					stroke="currentColor"
-					class="w-6 h-6"
+					class="w-10 h-10"
+					style="color: white;"
 				>
 					<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
 				</svg>
 			</button>
 			<button
 				type="button"
-				class="absolute top-[45%] right-[1vw] btn-icon bg-initial"
+				class="absolute top-[40%] right-[3vw] btn-icon bg-initial"
 				on:click={carouselRight}
 			>
 				<svg
@@ -54,7 +51,8 @@
 					viewBox="0 0 24 24"
 					stroke-width="1.5"
 					stroke="currentColor"
-					class="w-6 h-6"
+					class="w-10 h-10"
+					style="color:white"
 				>
 					<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
 				</svg>
