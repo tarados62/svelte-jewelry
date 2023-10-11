@@ -12,8 +12,8 @@
 	product.quantity = 1;
 </script>
 
-<div class="grid grid-cols-2 gap-2">
-	<Slider2 sliders={product.image_list} />
+<div class="grid grid-cols-2 gap-4">
+	<Slider2 slides={product.image_list} />
 
 	<div class="grid grid-cols-1 grid-flow-row grid-rows-[5rem_3rem_3rem_1fr] gap-1">
 		<div class="my-2 mx-0 uppercase tracking-wider text-xl">
