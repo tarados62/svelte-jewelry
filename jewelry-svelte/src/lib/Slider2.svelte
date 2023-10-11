@@ -4,29 +4,45 @@
 	export let sliders;
 
 	// @ts-ignore
-	let imageIndex = 0;
-	function carouselLeft() {
-		console.log('left');
+	let left = false;
+	let right = false;
+	$: imageIndex = 0;
+	$: if (left) {
+		carouselLeft();
+	}
+	$: if (right) {
+		carouselRight();
+	}
+	function carouselRight(index) {
+		if (index < sliders.leght) {
+			index++;
+			return index;
+		}
+		index = 0;
+		return index;
 	}
 
-	function carouselRight() {
-		console.log('right');
+	function carouselLeft(index) {
+		console.log(index);
 	}
 
 	function carouselThumbnail(index) {
 		imageIndex = index;
-		console.log(index);
 	}
 </script>
 
 <div>
 	<div class="p-4 grid grid-cols-1 grid-rows-[50vw] gap-4 place-items-center">
 		<div class="relative h-full w-full">
-			<img class="h-full w-auto flex justify-center absolute left-[3vw]" src="{sliders[imageIndex]}" alt="qq" />
+			<img
+				class="h-full w-auto flex justify-center absolute left-[3vw]"
+				src={sliders[imageIndex]}
+				alt="qq"
+			/>
 			<button
 				type="button"
 				class="absolute top-[40%] left-[3vw] btn-icon bg-initial"
-				on:click={carouselLeft}
+				on:click={carouselLeft(imageIndex)}
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +59,7 @@
 			<button
 				type="button"
 				class="absolute top-[40%] right-[3vw] btn-icon bg-initial"
-				on:click={carouselRight}
+				on:click={carouselRight(imageIndex)}
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
