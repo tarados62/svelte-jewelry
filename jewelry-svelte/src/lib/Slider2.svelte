@@ -20,8 +20,8 @@
 		currentSlide = index;
 	}
 </script>
-<div class="flex flex-nowrap">
-	<div class="relative  w-full">
+<div class="flex flex-wrap content-start w-full">
+	<div class="relative w-[calc(100%+200rem)]">
 		<img
 			class="h-auto w-full"
 			src={slides[currentSlide]}
@@ -62,7 +62,7 @@
 			</svg>
 		</button>
 	</div>
-	<div class="p-4 grid grid-cols-6 gap-1">
+	<div class="grid grid-cols-6 gap-2 mt-2">
 		{#each slides as slider, i}
 			<button type="button" on:click={() => carouselThumbnail(i)}>
 				<img class="rounded-container-token" src={slider} alt={slider} loading="lazy" />
