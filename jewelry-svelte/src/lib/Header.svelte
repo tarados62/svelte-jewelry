@@ -42,18 +42,16 @@
 		</div>
 	</div>
 </section>
-<div class="logo lg:text-lg sm:text-xl">
-	<span>JEWELRY</span>
-</div>
+<div class="w-full h-[4rem] m-3 flex items-center justify-center lg:text-[3rem]">JEWELRY</div>
 <nav>
-	<div class="links lg:text-lg sm:text-xl">
-		<a href="/">
+	<div class="w-full flex content-center justify-around lg:text-lg uppercase">
+		<a href="/" class="px-4 font-normal hover:font-bold">
 			{$tt['MenuHome']}
 		</a>
-		<a href="/about">
+		<a href="/about" class="px-4 font-normal hover:font-bold">
 			{$tt['MenuAboutUs']}
 		</a>
-		<a href="/contacts">
+		<a href="/contacts" class="px-4 font-normal hover:font-bold">
 			{$tt['MenuContacts']}
 		</a>
 	</div>
@@ -67,7 +65,6 @@
 		justify-content: space-between;
 		height: calc(60px + 2 * ((100vw - 320px) / 1518));
 		background-color: #f5f5f5;
-		font-size: calc(14px + 2 * ((100vw - 320px) / 1518));
 	}
 
 	.hamburger-phone {
@@ -126,37 +123,12 @@
 
 	.basket a span {
 		padding-left: 1%;
-		font-size: calc(18px + 2 * ((100vw - 320px) / 1848));
-	}
-
-	.logo {
-		height: 4rem;
-		width: 100%;
-		margin: 2%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-size: calc(30px + 25 * (100vw / 1280));
 	}
 	nav {
 		width: 100vw;
 		display: flex;
 		align-items: center;
 		margin-top: 7vmin;
-	}
-
-	nav .links {
-		width: 100vw;
-		display: flex;
-		align-items: center;
-		justify-content: space-evenly;
-		padding: 0 calc(3vw + 12 * (100vw / 1838));
-	}
-
-	nav .links a {
-		cursor: pointer;
-		text-decoration: none;
-		text-transform: uppercase;
 	}
 
 	@media screen and (max-width: 750px) {
