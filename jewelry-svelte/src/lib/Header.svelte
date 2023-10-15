@@ -17,23 +17,19 @@
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
-<section>
-	<div class="hamburger-phone">
-		<div class="my_hamb">
+<section class="flex items-center justify-between h-16 bg-[#f5f5f5]">
+	<div class="flex items-center justify-between flex-no-wrap">
+		<div class="md:hidden">
 			<Hamburger bind:open --color="black" />
 			<Menu bind:open />
 		</div>
-		<div class="phone">
-			<img src={phone} alt="" />
-			<a href="/" class="phone">
-				<span>+380507204066</span>
-			</a>
+		<div class="flex items-center justify-around sm:ml-4">
+			<img src={phone} class="h-[1rem]" alt="" />
+			<a href="/" class="flex items-center">+380507204066</a>
 		</div>
 	</div>
-	<div class="langbox-basket">
-		<div class="langbox">
-			<Dropdown />
-		</div>
+	<div class="flex items-center justify-between flex-no-wrap">
+		<Dropdown />
 		<div class="basket">
 			<a href="/cart">
 				<img src={cartImg} alt="" />
@@ -42,8 +38,12 @@
 		</div>
 	</div>
 </section>
-<div class="w-full h-[4rem] m-3 flex items-center justify-center lg:text-[3rem]">JEWELRY</div>
-<nav>
+<div
+	class="w-full h-[4rem] flex items-center justify-center text-[1.8rem] sm:text-[2rem] lg:text-[3rem]"
+>
+	JEWELRY
+</div>
+<nav class="w-full flex items-center mt-5 hidden md:block">
 	<div class="w-full flex content-center justify-around lg:text-lg uppercase">
 		<a href="/" class="px-4 font-normal hover:font-bold">
 			{$tt['MenuHome']}
@@ -58,58 +58,6 @@
 </nav>
 
 <style>
-	section {
-		z-index: 1;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		height: calc(60px + 2 * ((100vw - 320px) / 1518));
-		background-color: #f5f5f5;
-	}
-
-	.hamburger-phone {
-		display: flex;
-		flex-wrap: nowrap;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	.my_hamb {
-		z-index: 1;
-		display: none;
-	}
-
-	.phone {
-		display: flex;
-		align-items: center;
-		padding-left: calc(60 * ((100vw - 500px) / 1837));
-	}
-	.phone img {
-		height: 1rem;
-	}
-
-	.phone a {
-		margin-left: 5px;
-		text-decoration: none;
-		color: #000000;
-	}
-
-	.langbox-basket {
-		display: flex;
-		flex-wrap: nowrap;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	.langbox {
-		margin-right: 1.3rem;
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 10%;
-		text-decoration: none;
-		cursor: pointer;
-	}
-
 	.basket a {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -123,17 +71,5 @@
 
 	.basket a span {
 		padding-left: 1%;
-	}
-	nav {
-		width: 100vw;
-		display: flex;
-		align-items: center;
-		margin-top: 7vmin;
-	}
-
-	@media screen and (max-width: 750px) {
-		.my_hamb {
-			display: block;
-		}
 	}
 </style>

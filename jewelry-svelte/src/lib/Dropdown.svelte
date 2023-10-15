@@ -8,11 +8,11 @@
 	import { page } from '$app/stores';
 	import { translate } from './services/translate';
 	import { localeName } from '$lib/services/stores';
-	
+
 	const fotos = [ru, ua, en, es];
 	$: if ($localeName) {
 		translate();
-	};
+	}
 	$: foto = en;
 	$: if ($localeName == 'EN') {
 		foto = en;
@@ -25,9 +25,9 @@
 	}
 </script>
 
-<div class="group inline-block">
+<div class="group inline-block mr-4">
 	<button
-		class="outline-none focus:outline-none px-3 py-1 bg-white rounded-sm flex items-center min-w-32"
+		class="outline-none focus:outline-none px-3 bg-white rounded-sm flex items-center min-w-32"
 	>
 		<span class="pr-1 font-semibold flex-1 lang">
 			<img alt="" src={foto} />
