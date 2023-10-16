@@ -29,8 +29,10 @@
 	<button
 		class="outline-none focus:outline-none px-3 bg-white rounded-sm flex items-center min-w-32"
 	>
-		<span class="pr-1 font-semibold flex-1 lang">
-			<img alt="" src={foto} />
+		<span
+			class="pr-1 font-semibold flex-1 grid grid-cols-[1rem 2rem] content-center justify-center grid-flow-col"
+		>
+			<img alt="" src={foto} class="w-[1rem] self-center mr-1" />
 			<span>{$localeName}</span>
 		</span>
 		<span>
@@ -50,12 +52,12 @@
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 			<li
-				class="rounded-sm px-3 py-1 hover:bg-gray-100 lang lang-item"
+				class="rounded-sm px-3 py-1 hover:bg-gray-100 grid grid-cols-[1rem 2rem] content-center justify-center"
 				on:click={() => {
 					$localeName = $page.data.countries[index];
 				}}
 			>
-				<img alt="" src={fotos[index]} />
+				<img alt="" src={fotos[index]} class="w-[1rem]" />
 				<span> {item}</span>
 			</li>
 		{/each}
@@ -63,19 +65,6 @@
 </div>
 
 <style>
-	.lang {
-		display: grid;
-		align-items: center;
-		grid-template-columns: 1rem 2rem;
-	}
-	.lang img {
-		width: 1rem;
-	}
-
-	.lang-item {
-		justify-items: center;
-		cursor: pointer;
-	}
 	.outline-none {
 		background-color: whitesmoke;
 		padding-right: 0;
