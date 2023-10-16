@@ -17,7 +17,7 @@
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
-<section class="flex items-center justify-between h-16 bg-[#f5f5f5]">
+<section class="flex items-center justify-between h-16 bg-[#f5f5f5] md:text-[1rem]">
 	<div class="flex items-center justify-between flex-no-wrap">
 		<div class="md:hidden">
 			<Hamburger bind:open --color="black" />
@@ -30,12 +30,10 @@
 	</div>
 	<div class="flex items-center justify-between flex-no-wrap">
 		<Dropdown />
-		<div class="basket">
-			<a href="/cart">
-				<img src={cartImg} alt="" />
-				<span>{$cart.length}</span>
-			</a>
-		</div>
+		<a href="/cart" class="grid grid-cols-[1fr ifr] gap-[10%] grid-flow-col mr-2">
+			<img src={cartImg} alt="" class="h-[1.4rem]" />
+			{$cart.length}
+		</a>
 	</div>
 </section>
 <div
@@ -56,20 +54,3 @@
 		</a>
 	</div>
 </nav>
-
-<style>
-	.basket a {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 10%;
-		text-decoration: none;
-		cursor: pointer;
-	}
-	img {
-		height: 1.4rem;
-	}
-
-	.basket a span {
-		padding-left: 1%;
-	}
-</style>
