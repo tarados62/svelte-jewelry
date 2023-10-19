@@ -18,10 +18,10 @@
 	<div class="grid grid-cols-1 grid-flow-row grid-rows-[5rem_3rem_3rem_1fr] gap-1">
 		<div class="my-2 mx-0 uppercase tracking-wider text-[1rem] lg:text-lg sm:text-xl">
 			{#if product.new_price}
-				<div class="current">
+				<div class="line-through">
 					{product.price} eur
 				</div>
-				<div class="red">
+				<div class="text-orange-400">
 					{product.new_price} eur
 				</div>
 			{:else}
