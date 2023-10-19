@@ -8,31 +8,17 @@
 	let changeImg = false;
 </script>
 
-<div class="image-container">
+<div class="cursor-pointer">
 	<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 	<img
+		class="w-full"
 		src={changeImg ? productData.images[0] : productData.images[1]}
 		on:mouseover={() => (changeImg = !changeImg)}
 		on:mouseleave={() => (changeImg = !changeImg)}
 		alt={productData.title}
 	/>
-	<div class="price-box">
+	<div class="flex flex-col items-center">
 		<span>{productData.title}</span>
 		<span>{productData.price}</span>
 	</div>
 </div>
-
-<style>
-	.image-container {
-		cursor: pointer;
-	}
-	.image-container img {
-		width: 100%;
-	}
-
-	.price-box {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-</style>
