@@ -1,33 +1,29 @@
-<script lang="ts">
-	import { InputChip, toastStore } from '@skeletonlabs/skeleton';
+<script>
 	import { tt } from '$lib/services/stores';
 
-	// export let valueInput;
-
-	function isValidEmail(value: string): boolean {
-		console.log('jjjjj');
+	export let type = 'text';
+	export let value = '';
+	export let placeholder = '';
+	/**
+	 * @type {any}
+	 */
+	export let validation;
+	/**
+	 *
+	 * @param {string} value
+	 */
+	function isValidEmail(value) {
 		return value.includes('@') && value.includes('.');
 	}
-
-	function onInvalidHandler(event: any): void {
-		toastStore.trigger({
-			message: `"${event.detail.input}" is an invalid value. Please try again!`,
-			background: 'variant-filled-error'
-		});
+	/**
+	 *
+	 * @param {any} event
+	 */
+	function onInvalidHandler(event) {
+		console.log(event);
 	}
-	let name = '';
+
+	$: validation ? isValidEmail(value) : NaN;
 </script>
 
-<!-- <input class="input" title="Input (text)" type="text" placeholder="input text" /> -->
-<InputChip
-	name="chips-example-emails"
-	placeholder="Enter Emails..."
-	chips="variant-filled-secondary"
-	validation={isValidEmail}
-/>
-<!-- <InputChip ... on:invalid={onInvalidHandler} />
-<InputChip ... max={3} />
-<InputChip ... minlength={2} maxlength={5} /> -->
-
-<!-- <label for="name">{name}</label>
-<input id="name" bind:value={name} /> -->
+<input class="input" {type} {value} {placeholder} />
