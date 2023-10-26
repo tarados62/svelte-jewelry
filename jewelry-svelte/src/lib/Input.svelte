@@ -1,29 +1,36 @@
 <script>
 	import { tt } from '$lib/services/stores';
 
-	export let type = 'text';
 	export let value = '';
 	export let placeholder = '';
 	/**
 	 * @type {any}
 	 */
-	export let validation;
+	let variant;
 	/**
 	 *
-	 * @param {string} value
+	 * @param {any} val
 	 */
-	function isValidEmail(value) {
-		return value.includes('@') && value.includes('.');
+	function isValidEmail(val) {
+		let jsonString = JSON.stringify(val);
+		if (
+			(jsonString.indexOf('@') != -1 && jsonString.indexOf('.') != -1) ||
+			jsonString.indexOf('@') < jsonString.indexOf('.')
+		) {
+			console.log(val);
+			return true;
+		} else {
+			console.log('ii');
+			return false;
+		}
 	}
-	/**
-	 *
-	 * @param {any} event
-	 */
-	function onInvalidHandler(event) {
-		console.log(event);
-	}
-
-	$: validation ? isValidEmail(value) : NaN;
+	$: isValidEmail(value) ? (variant = 'success') : (variant = 'error');
 </script>
 
-<input class="input" {type} {value} {placeholder} />
+<input
+	class="input-{variant}"
+	type="text"
+	bind:value
+	{placeholder}
+	on:change={() => isValidEmail({ value })}
+/>
