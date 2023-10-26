@@ -1,33 +1,41 @@
-<script lang="ts">
-	import { InputChip, toastStore } from '@skeletonlabs/skeleton';
+<script>
+	
 	import { tt } from '$lib/services/stores';
+	import { error } from '@sveltejs/kit';
 
-	// export let valueInput;
-
-	function isValidEmail(value: string): boolean {
-		console.log('jjjjj');
-		return value.includes('@') && value.includes('.');
+	export let value = '';
+	export let title = 'Enter email';
+	export let placeholder = 'Enter email';
+	
+	// export let validation = false;
+	let msg = '';
+	let variant = 'warning';
+	/**
+	 * @type {any}
+	 */
+	let invalidEmail;
+	/**
+ 	*
+ 	* @param {any} val
+ 	*/
+	 function checkEmailFormat(val) {
+		const jsonString = JSON.stringify(val);
+  		let atSymbolIndex = jsonString.indexOf("@");
+  		let dotSymbolIndex = jsonString.indexOf(".");
+  		if (atSymbolIndex !== -1 && dotSymbolIndex !== -1 && dotSymbolIndex > atSymbolIndex) {
+			msg = val.value;
+			invalidEmail = false;
+    		return true;
+  		} else {
+			msg = 'Enter email';
+			invalidEmail = true;
+    		return false;
+  		}
 	}
-
-	function onInvalidHandler(event: any): void {
-		toastStore.trigger({
-			message: `"${event.detail.input}" is an invalid value. Please try again!`,
-			background: 'variant-filled-error'
-		});
-	}
-	let name = '';
+	$: if (value != '') {checkEmailFormat(value) ? variant = 'success' : variant = 'error'};
+	$: if (invalidEmail) { value = ''};
 </script>
 
-<!-- <input class="input" title="Input (text)" type="text" placeholder="input text" /> -->
-<InputChip
-	name="chips-example-emails"
-	placeholder="Enter Emails..."
-	chips="variant-filled-secondary"
-	validation={isValidEmail}
-/>
-<!-- <InputChip ... on:invalid={onInvalidHandler} />
-<InputChip ... max={3} />
-<InputChip ... minlength={2} maxlength={5} /> -->
-
-<!-- <label for="name">{name}</label>
-<input id="name" bind:value={name} /> -->
+<input class="input-{variant}" {title} bind:value={value} type="text" {placeholder} on:change={() => checkEmailFormat({value})}/>
+{msg}
+{value}
