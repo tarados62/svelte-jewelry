@@ -21,6 +21,9 @@
 	function handleChange(event) {
 		value = event.target.value;
 		isValid = validateEmail(value);
+		if(!isValid) {
+			value = '';
+		}
 	}
 	/**
 	 * @type {any}
@@ -32,7 +35,7 @@
 
 <input
 	{required}
-	class="input-{variant}"
+	class="input input-{variant}"
 	type="email"
 	bind:value={value}
 	{placeholder}
