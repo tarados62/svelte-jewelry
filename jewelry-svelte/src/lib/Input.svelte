@@ -1,9 +1,12 @@
 <script>
+// @ts-nocheck
+
 	import { tt } from '$lib/services/stores';
 
 	export let value = '';
 	export let placeholder = '';
-	export const required = false;
+	// @ts-ignore
+	export let required = undefined;
 	let isValid = true;
 	/**
 	 *
@@ -30,18 +33,23 @@
 	 */
 	let variant;
 	
-	$: isValid ? value == '' ? (variant = 'warning') : (variant = 'success') : (variant = 'error');
+	$: if(!isValid) {
+		variant = 'error';
+	} else {
+		variant = undefined;
+	};
 </script>
 
 <input
 	{required}
-	class="input input-{variant}"
-	type="email"
+	class="input input-{variant} pl-2 bg-white rounded-md"
 	bind:value={value}
+	type="text"
 	{placeholder}
 	on:change={handleChange}
 />
 {#if !isValid}
-<p class="error">Enter valid email!</p>
+<span class="text-red-500">Enter valid email!</span>
 {/if}
 {value}
+
