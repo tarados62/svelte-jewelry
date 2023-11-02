@@ -3,8 +3,9 @@
 	export let value = '';
 	export let placeholder = '';
 	// @ts-ignore
-	export let required = undefined;
-	export let type = 'text';
+	export let required = false;
+	export let validationEnabled = false;
+	export let type = 'email';
 	let isValid = true;
 	const errorStatus = {};
 	/**
@@ -19,7 +20,7 @@
 		return emailRegex.test(email);
 	};
 	function validateName() {
-		const textRegex = /^[a-zA-Zа-яА-ЯёЁ]{,25}+$/;
+		const textRegex = /^[a-zA-Zа-яА-ЯёЁ]+$/;
 		if (textRegex.test(value) == false) {
 			errorStatus.message = 'You entered the wrong character';
 		}
@@ -31,7 +32,9 @@
 	 */
 	function handleChange(event) {
 		value = event.target.value;
-		type == 'email' ? isValid = validateEmail(value) : isValid = validateName(value);
+		if (validationEnabled) {
+			type == 'email' ? isValid = validateEmail(value) : isValid = validateName(value);
+		}	
 		if(!isValid) {
 			value = '';
 		}
@@ -59,4 +62,5 @@
 {#if !isValid}
 <span class="text-red-500">{errorStatus.message}!</span>
 {/if}
+{value}
 
