@@ -5,19 +5,19 @@
 	// @ts-ignore
 	export let required = false;
 	export let validationEnabled = false;
-	export let type = 'email';
+	export let email = false;
 	let isValid = true;
 	const errorStatus = {};
 	/**
 	 *
-	 * @param {any} email
+	 * @param {any} val
 	 */
-	function validateEmail(email) {
+	function validateEmail(val) {
 		const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		if (emailRegex.test(value) == false) {
 			errorStatus.message = 'Enter email';
 		}
-		return emailRegex.test(email);
+		return emailRegex.test(val);
 	};
 	function validateName() {
 		const textRegex = /^[a-zA-Zа-яА-ЯёЁ]+$/;
@@ -33,7 +33,7 @@
 	function handleChange(event) {
 		value = event.target.value;
 		if (validationEnabled) {
-			type == 'email' ? isValid = validateEmail(value) : isValid = validateName(value);
+			email ? isValid = validateEmail(value) : isValid = validateName(value);
 		}	
 		if(!isValid) {
 			value = '';
@@ -54,8 +54,8 @@
 <input
 	{required}
 	class="input input-{variant} pl-2 bg-white rounded-md"
-	{value}
-	{type}
+	bind:value={value}
+	type="text"
 	{placeholder}
 	on:change={handleChange}
 />
