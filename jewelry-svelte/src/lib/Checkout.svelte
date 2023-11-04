@@ -6,7 +6,9 @@
 	import Input from '$lib/Input.svelte';
 </script>
 
-<Input validationEnabled email required/>
+<Input validationEnabled email required />
+<Input validationEnabled required />
+<Input />
 
 <!-- <div class="max-h-9 text-start mx-9 uppercase text-[1rem] lg:text-lg sm:text-xl">
 	<h1>{$tt['MakingAnOrder']}</h1>
